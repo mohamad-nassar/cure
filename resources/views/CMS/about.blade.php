@@ -31,7 +31,7 @@
           </div>
         </div>
       </section>
-      <div class="card card-primary">
+      {{-- <div class="card card-primary">
         <div class="card-header" align="center">
           <h3 class="card-title">About Us</h3>
           <div class="card-tools">
@@ -43,7 +43,7 @@
         <div class="card-body" style="display: block">
           <form action="{{ Route('aboutupdate') }}" method="post" enctype="multipart/form-data" autocomplete="off">
             @php
-             $aboutus=json_Decode($about)   
+             $aboutus=json_Decode($about)
             @endphp
             @csrf
             <label>Top Image</label>
@@ -79,6 +79,44 @@
             <div align="center"><button type="submit" class="btn btn-primary">Update</button></div>
           </form>
             </div>
+      </div> --}}
+
+      <div class="card card-primary card-tabs">
+        <div class="card-header p-0 pt-1">
+          <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="top-image-tab" data-toggle="pill" href="#custom-tabs-top-image-tab" role="tab" aria-controls="custom-tabs-one-top-image-tab" aria-selected="true">Top Image</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="our-vision-tab" data-toggle="pill" href="#custom-tabs-our-vision" role="tab" aria-controls="custom-tabs-one-our-vision" aria-selected="false">Our Vision</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="our-mission-tab" data-toggle="pill" href="#custom-tabs-our-mission" role="tab" aria-controls="custom-tabs-one-our-mission" aria-selected="false">Our Mission</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="our-values" data-toggle="pill" href="#custom-tabs-values" role="tab" aria-controls="custom-tabs-one-values" aria-selected="false">Values</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="custom-tabs-one-tabContent">
+            <div class="tab-pane fade show active" id="custom-tabs-top-image-tab" role="tabpanel" aria-labelledby="custom-tabs-info-home-tab">
+
+            </div>
+
+            <div class="tab-pane fade" id="custom-tabs-our-vision" role="tabpanel" aria-labelledby="custom-tabs-opening-tab">
+
+            </div>
+
+            <div class="tab-pane fade" id="custom-tabs-our-mission" role="tabpanel" aria-labelledby="custom-tabs-opening-tab">
+
+            </div>
+            <div class="tab-pane fade" id="custom-tabs-values" role="tabpanel" aria-labelledby="custom-tabs-opening-tab">
+
+            </div>
+
+          </div>
+        </div>
       </div>
 </div>
 @endsection

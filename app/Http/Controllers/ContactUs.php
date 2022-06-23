@@ -37,7 +37,7 @@ class ContactUs extends Controller
         );
         $contactus=$data;
         $contactus=json_encode($contactus);
-        file_put_contents((public_path() ."\pages\contactus.json"),$contactus);
+        file_put_contents((public_path() ."/pages/contactus.json"),$contactus);
         $msg="Contact us updated successfully";
         return response()->json(['status'=>200,'msg'=>$msg]);
     }
@@ -46,12 +46,11 @@ class ContactUs extends Controller
         $data=array();
         for($i=1;$i<=$request->input('count');$i++)
         {
-            // array_push($data,[$request->input('day'.$i)=>$request->input('hour'.$i)]);
-            $data += [$request->input('day'.$i)=>$request->input('hour'.$i)];
+            if($request->input('day'.$i)!=null) $data += [$request->input('day'.$i)=>$request->input('hour'.$i)];
         }
         $data=json_encode($data);
-        file_put_contents((public_path() ."\pages\opening.json"),$data);
-        $msg="Contact us updated successfully";
-        return response()->json(['status'=>200,'msg'=>'Opening Hours updated successfully']);
+        file_put_contents((public_path() ."/pages/opening.json"),$data);
+        $msg="Opening Hours updated successfully";
+        return response()->json(['status'=>200,'msg'=>$msg]);
     }
 }

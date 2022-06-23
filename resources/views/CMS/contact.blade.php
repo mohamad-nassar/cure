@@ -1,14 +1,6 @@
 @extends('layouts.master')
 @section('content')
 <div class="content-wrapper">
-	<script>
-      var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
-	</script>
     <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
@@ -114,11 +106,19 @@
                                    success: function(result){
                                      if(result.status ==200 )
                                      {
-                                      Toast.fire({
-                                      icon: 'success',
-                                      title: result.msg,
-                                      background: '#20c997',
-                                     })
+                                        var Toast = Swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                        });
+                                        Toast.fire({
+                                        icon: 'success',
+                                        title: "<h6 style='color:white'>"+result.msg+"</h6>",
+                                        background: '#20c997',
+                                        iconColor: 'white',
+                                        color:'white'
+                                    })
                                      }
                                    }});
                                 });
@@ -132,13 +132,17 @@
                             @csrf <meta name="csrf-token" content="{{ csrf_token() }}"> <input type="hidden" name="_token" id="csrf_token" value="{{ csrf_token() }}">
                             @php
                                 $open=json_decode($opening,true);
+                                $i=0;
                             @endphp
                             <input type="hidden" name="count" id="count" value="{!! count($open) !!}">
                             @foreach ($open as $key=>$value)
+                            @php
+                                $i++;
+                            @endphp
                             <label>Days:</label>
-                            <input type="text" name="day{{ count($open)+1 }}" id="day{{ count($open) }}" value="{{ $key }}" class="form-control">
+                            <input type="text" name="day{{ count($open)+1 }}" id="day{{ $i }}" value="{{ $key }}" class="form-control">
                             <label>Hours:</label>
-                            <input type="text" name="hour{{ count($open)+1 }}" id="hour{{ count($open) }}" value="{{ $value }}" class="form-control">
+                            <input type="text" name="hour{{ count($open)+1 }}" id="hour{{ $i }}" value="{{ $value }}" class="form-control">
                             <br>
                             @endforeach
                         </div>
@@ -171,11 +175,19 @@
                                     console.log(result.msg);
                                      if(result.status ==200 )
                                      {
-                                      Toast.fire({
-                                      icon: 'success',
-                                      title: result.msg,
-                                      background: '#20c997',
-                                     })
+                                        var Toast = Swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                        });
+                                        Toast.fire({
+                                        icon: 'success',
+                                        title: "<h6 style='color:white'>"+result.msg+"</h6>",
+                                        background: '#20c997',
+                                        iconColor: 'white',
+                                        color:'white'
+                                    })
                                      }
                                    }});
                                 });
