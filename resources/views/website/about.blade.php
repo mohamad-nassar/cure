@@ -40,7 +40,7 @@
 						<!-- INFO IMAGE -->
 						<div class="col-lg-6">
 							<div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-								<img class="img-fluid" src="{{ asset('images/image/back8.jpeg') }}" alt="info-image">
+								<img class="img-fluid" src="{{ asset('frontend/images/image/back8.jpeg') }}" alt="info-image">
 							</div>
 						</div>
 
@@ -74,7 +74,7 @@
 
 									<!-- Singnature Image -->
 									<!-- Recommended sizes for Retina Ready displays is 400x68px; -->
-									<img class="img-fluid" src="{{ asset('images/image/coeurlove.webp') }}" width="200" height="34" alt="signature-image">
+									<img class="img-fluid" src="{{ asset('frontend/images/image/coeurlove.webp') }}" width="200" height="34" alt="signature-image">
 
 								</div>
 
@@ -149,7 +149,7 @@
 							<!-- INFO IMAGE -->
 							<div class="col-lg-6">
 								<div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-									<img class="img-fluid" src="{{ asset('images/image/back2.webp') }}" alt="info-image">
+									<img class="img-fluid" src="{{ asset('frontend/images/image/back2.webp') }}" alt="info-image">
 								</div>
 							</div>
 
@@ -163,7 +163,7 @@
 
 			<div class="col-lg-6">
 				<div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-					<img class="img-fluid" src="{{ asset('images/image/back8.jpeg') }}" alt="info-image">
+					<img class="img-fluid" src="{{ asset('frontend/images/image/back8.jpeg') }}" alt="info-image">
 				</div>
 			</div>
 
@@ -232,7 +232,7 @@
 		<div class="container mt-5">
 		<div align="center" class="row d-flex align-items-center justify-content-center">
 <div class="col-6">
-	<img class="img-fluid" src="{{ asset('images/image/coeurlove.webp') }}" width="400" height="34" alt="signature-image">
+	<img class="img-fluid" src="{{ asset('frontend/images/image/coeurlove.webp') }}" width="400" height="34" alt="signature-image">
 
 </div>
 		</div>

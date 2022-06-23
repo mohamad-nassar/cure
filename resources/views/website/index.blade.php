@@ -15,7 +15,7 @@
 				      	<li id="slide-1">
 
 					        <!-- Background Image -->
-				        	<img src="{{ ('images/image/back6.jpg') }}" alt="slide-background">
+				        	<img src="{{ ('frontend/images/image/back6.jpg') }}" alt="slide-background">
 
 							<!-- Image Caption -->
 		       				<div class="caption d-flex align-items-center right-align">
@@ -59,7 +59,7 @@
 				      	<li id="slide-2">
 
 				        	<!-- Background Image -->
-				        	<img src="{{ ('images/image/back7.jpg') }}" alt="slide-background">
+				        	<img src="{{ ('frontend/images/image/back7.jpg') }}" alt="slide-background">
 
 							<!-- Image Caption -->
 	        				<div class="caption d-flex align-items-center right-align">
@@ -93,7 +93,7 @@
 				      	<li id="slide-3">
 
 				      		<!-- Background Image -->
-				        	<img src="{{ ('images/image/back8.jpeg') }}" alt="slide-background">
+				        	<img src="{{ ('frontend/images/image/back8.jpeg') }}" alt="slide-background">
 
 				        	<!-- Image Caption -->
 		       			 	<div class="caption d-flex align-items-center right-align">
@@ -329,7 +329,7 @@
 						<!-- IMAGE BLOCK -->
 						<div class="col-lg-6">
 							<div class="about-img text-center wow fadeInUp" data-wow-delay="0.6s">
-								<img class="img-fluid" src="{{ ('images/image/doctors.jpg') }}" alt="about-image">
+								<img class="img-fluid" src="{{ ('frontend/images/image/doctors.jpg') }}" alt="about-image">
 							</div>
 						</div>
 
@@ -352,7 +352,7 @@
 									hospitals.
 
 								</p>
-								<img class="img-fluid" src="{{ asset('images/image/coeurlove.webp') }}" width="200" height="34" alt="signature-image">
+								<img class="img-fluid" src="{{ asset('frontend/images/image/coeurlove.webp') }}" width="200" height="34" alt="signature-image">
 
 
 								<!-- Singnature -->
@@ -559,7 +559,7 @@
 							<!-- CALL TO ACTION IMAGE -->
 							<div class="col-lg-5">
 								<div class="banner-2-img">
-									<img class="img-fluid" src="{{ ('images/image/dctr.png') }}" alt="banner-image">
+									<img class="img-fluid" src="{{ ('frontend/images/image/dctr.png') }}" alt="banner-image">
 								</div>
 							</div>
 
@@ -673,7 +673,7 @@
 						<!-- STATISTIC IMAGE -->
 						<div class="col-lg-6">
 							<div class="statistic-img text-center mb-40 wow fadeInUp" data-wow-delay="0.6s">
-								<img class="img-fluid" src="{{ ('images/image/doctors.jpg') }}" alt="statistic-image">
+								<img class="img-fluid" src="{{ ('frontend/images/image/doctors.jpg') }}" alt="statistic-image">
 							</div>
 						</div>
 
@@ -743,7 +743,7 @@
 										<!-- TAB-1 IMAGE -->
 										<div class="col-lg-6">
 											<div class="tab-img">
-												<img class="img-fluid" src="{{ ('images/image/pedia.jpg') }}" alt="tab-image">
+												<img class="img-fluid" src="{{ ('frontend/images/image/pedia.jpg') }}" alt="tab-image">
 											</div>
 										</div>
 
@@ -818,7 +818,7 @@
 										<!-- TAB-2 IMAGE -->
 										<div class="col-lg-6">
 											<div class="tab-imgs">
-												<img class="img-fluid" src="{{ ('images/image/hemog.jpg') }}" alt="tab-image">
+												<img class="img-fluid" src="{{ ('frontend/images/image/hemog.jpg') }}" alt="tab-image">
 											</div>
 										</div>
 
@@ -901,7 +901,7 @@
 										<!-- TAB-3 IMAGE -->
 										<div class="col-lg-6">
 											<div class="tab-img">
-												<img class="img-fluid" src="{{ ('images/image/mri.jpg') }}" alt="tab-image">
+												<img class="img-fluid" src="{{ ('frontend/images/image/mri.jpg') }}" alt="tab-image">
 											</div>
 										</div>
 
@@ -989,7 +989,7 @@
 										<!-- TAB-4 IMAGE -->
 										<div class="col-lg-6">
 											<div class="tab-img">
-												<img class="img-fluid" src="{{ ('images/image/xray.jpg') }}" alt="tab-image">
+												<img class="img-fluid" src="{{ ('frontend/images/image/xray.jpg') }}" alt="tab-image">
 											</div>
 										</div>
 

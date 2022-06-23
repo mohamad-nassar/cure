@@ -55,9 +55,9 @@
 
 	<body>
 
-@include('layouts.header')
+@include('website.layouts.header')
 @yield('content')
-@include('layouts.footer')
+@include('website.layouts.footer')
 
 
 

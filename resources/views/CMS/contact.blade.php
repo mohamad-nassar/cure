@@ -128,7 +128,90 @@
 
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-opening-tab" role="tabpanel" aria-labelledby="custom-tabs-opening-tab">
-
+                        <div id="op">
+                            @csrf <meta name="csrf-token" content="{{ csrf_token() }}"> <input type="hidden" name="_token" id="csrf_token" value="{{ csrf_token() }}">
+                            @php
+                                $open=json_decode($opening,true);
+                            @endphp
+                            <input type="hidden" name="count" id="count" value="{!! count($open) !!}">
+                            @foreach ($open as $key=>$value)
+                            <label>Days:</label>
+                            <input type="text" name="day{{ count($open)+1 }}" id="day{{ count($open) }}" value="{{ $key }}" class="form-control">
+                            <label>Hours:</label>
+                            <input type="text" name="hour{{ count($open)+1 }}" id="hour{{ count($open) }}" value="{{ $value }}" class="form-control">
+                            <br>
+                            @endforeach
+                        </div>
+                        <div align="center">
+                        <button class="btn btn-primary" onclick="addnew()">Add New</button>
+                        <button class="btn btn-primary" type="button" id="update">Update</button>
+                        <script>
+                            $(document).ready(function(){
+                            $('#update').click(function(e){
+                              e.preventDefault();
+                              var formData=new FormData();
+                              formData.append('count',$('#count').val());
+                              for(i=1;i<=document.getElementById('count').value;i++)
+                              {
+                                formData.append('day'+i,$('#day'+i).val())
+                                formData.append('hour'+i,$('#hour'+i).val())
+                              }
+                                $.ajaxSetup({
+                                headers: {
+                                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                  }
+                                });
+                                $.ajax({
+                                   url: "{{ Route('openingupdate') }}",
+                                   method: 'post',
+                                   data: formData,
+                                   processData: false,
+                                   contentType: false,
+                                   success: function(result){
+                                    console.log(result.msg);
+                                     if(result.status ==200 )
+                                     {
+                                      Toast.fire({
+                                      icon: 'success',
+                                      title: result.msg,
+                                      background: '#20c997',
+                                     })
+                                     }
+                                   }});
+                                });
+                             });
+                        </script>
+                        </div>
+                        <script>
+                            function addnew()
+                            {
+                                var count=document.getElementById('count').value;
+                                var i=count;
+                                i++;
+                                var div=document.getElementById('op');
+                                var daylabel=document.createElement('label');
+                                daylabel.innerHTML="Days:"
+                                var dayinput=document.createElement('input');
+                                dayinput.setAttribute('type','text');
+                                dayinput.setAttribute('name','day'+i);
+                                dayinput.setAttribute('id','day'+i);
+                                dayinput.setAttribute('class','form-control');
+                                var hourlabel=document.createElement('label');
+                                hourlabel.innerHTML="Hours:"
+                                var hourinput=document.createElement('input');
+                                hourinput.setAttribute('type','text');
+                                hourinput.setAttribute('name','day'+i);
+                                hourinput.setAttribute('id','hour'+i);
+                                hourinput.setAttribute('class','form-control');
+                                var br=document.createElement('br');
+                                div.append(daylabel);
+                                div.append(dayinput);
+                                div.append(hourlabel);
+                                div.append(hourinput);
+                                div.append(br);
+                                document.getElementById('count').value=i;
+                            }
+                        </script>
                     </div>
                   </div>
                 </div>

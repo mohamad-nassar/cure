@@ -8,12 +8,12 @@ class AboutUs extends Controller
 {
     public function page()
     {
-        $about=file_get_contents(public_path() ."\pages\aboutus.json");
+        $about=file_get_contents(public_path() ."/pages/aboutus.json");
         return view('CMS.about',compact('about'));
     }
     public function aboutupdate(Request $request)
     {
-        $about=json_decode(file_get_contents(public_path() ."\pages\aboutus.json"));
+        $about=json_decode(file_get_contents(public_path() ."/pages/aboutus.json"));
         $image=$about->image;
         if($request->hasFile('image'))
         {

@@ -57,6 +57,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/contact-us',[ContactUs::class,'page'])->name('cmscontactpage');
     Route::post('/contact-us/update',[ContactUs::class,'contactpdate'])->name('contactpdate');
+    Route::post('/contact-us/opening/update',[ContactUs::class,'openingupdate'])->name('openingupdate');
 
 
 

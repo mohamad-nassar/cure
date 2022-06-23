@@ -1,10 +1,10 @@
 
 
-	
+
 
 
 		<!-- PAGE CONTENT
-		============================================= -->	
+		============================================= -->
 		<div id="page" class="page">
 
 
@@ -18,7 +18,7 @@
 				<!-- MOBILE HEADER -->
 			    <div class="wsmobileheader clearfix">
 			    	<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
-			    	<span class="smllogo"><img src="{{ asset('images/image/logoeng.png') }}" width="180" height="60" alt="mobile-logo"></span>
+			    	<span class="smllogo"><img src="{{ asset('frontend/images/image/logoeng.png') }}" width="180" height="60" alt="mobile-logo"></span>
 			    	<a href="tel:0222872012" class="callusbtn"><i class="fa fa-phone"></i></a>
 			 	</div>
 
@@ -28,7 +28,7 @@
 			    	<div class="container-fluid clearfix">
 
 			    		<!-- Address -->
-			     		<div class="headertopleft">			     			
+			     		<div class="headertopleft">
 			        		<div class="address clearfix"><span><i class="fa fa-map-marker-alt"></i>Hamouda Mahmoud Street ,25
 								in front of Enppi , region 8</span> <a href="tel:0222872012" class="callusbtn"><i class="fa fa-phone"></i>02 22872012 – 02 22872013</a>
 			            	</div>
@@ -62,7 +62,7 @@ About Our Company
 
     					<!-- LOGO IMAGE -->
     					<!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 360 x 80 pixels) -->
-    					<div class="desktoplogo"><a href="home.html"><img src="images/image/logoeng.png" width="180" height="60" alt="header-logo"></a></div>
+    					<div class="desktoplogo"><a href="{{ Route('index') }}"><img src="{{ asset('frontend/images/image/logoeng.png') }}" width="180" height="60" alt="header-logo"></a></div>
 
     					<!-- MAIN MENU -->
       					<nav class="wsmenu clearfix">
@@ -74,10 +74,10 @@ About Our Company
         						<!-- DROPDOWN MENU -->
 					        	<li aria-haspopup="true"><a href="#">For Patients <span class="wsarrow"></span></a>
 					           		<ul class="sub-menu">
-										
+
 										<li><a class="@if(Route::currentRouteName()=='services') active @endif" href="/services">Our Services</a></li>
 										<li><a class="@if(Route::currentRouteName()=='meetdr') active @endif" href="/meetdr">Meet the Doctors</a></li>
-											
+
 					           		</ul>
 					          	</li>	<!-- END DROPDOWN MENU -->
 
@@ -90,11 +90,11 @@ About Our Company
 
                									<!-- MEGAMENU QUICK LINKS -->
                									<ul class="col-lg-6 col-md-12 col-xs-12 link-list">
-								               
+
 											<li><a class="@if(Route::currentRouteName()=='fordoctor') active @endif" href="/fordoctor">For Doctors</a></li>
 											<li><a class="@if(Route::currentRouteName()=='fordoctor') active @endif" href="/fordoctor">If You're A Concultant</a></li>
 											<li><a class="@if(Route::currentRouteName()=='hospitalequipment') active @endif" href="/hospitalequipment">Hospital Equipment</a></li>
-											<li><a href="#">Comming Soon </a></li>	
+											<li><a href="#">Comming Soon </a></li>
 								                </ul>
 
 
@@ -105,27 +105,27 @@ About Our Company
 								                    <h3 class="title">Hospital Equipment</h3>
 
 								                    <!-- Image -->
-								                    <div class="fluid-width-video-wrapper"><img src="{{ asset('images/image/dctr.png') }}" alt="featured-news"></div>
+								                    <div class="fluid-width-video-wrapper"><img src="{{ asset('frontend/images/image/dctr.png') }}" alt="featured-news"></div>
 
 								                    <!-- Text -->
-								           
+
 								                    <p class="wsmwnutxt">Cure hospital is established to offer wide range of specialized high quality
 														medical services.
-														
+
 								                    </p>
 
 								                </div>	<!-- END MEGAMENU FEATURED NEWS -->
 
 
-								           
 
-								                
-							                </div>  <!-- End row -->	
-							            </div>  <!-- End container -->	
-							        </div>  <!-- End wsmegamenu -->	
+
+
+							                </div>  <!-- End row -->
+							            </div>  <!-- End container -->
+							        </div>  <!-- End wsmegamenu -->
 							    </li>	<!-- END MEGAMENU -->
 
-							    
+
 							    <!-- SIMPLE NAVIGATION LINK -->
 								<li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='telemedicine') active @endif" href="/telemedicine">Telemedicine</a></li>
 								<li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='medical') active @endif" href="/medical">Medical Tourism</a></li>
