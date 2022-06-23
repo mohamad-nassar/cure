@@ -21,6 +21,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/',[website::class,'index'])->name('index');
+Route::get('/about',[website::class,'about'])->name('about');
+Route::get('/appointment',[website::class,'appointment'])->name('appointment');
+Route::get('/contact',[website::class,'contact'])->name('contact');
+Route::get('/department',[website::class,'department'])->name('department');
+Route::get('/fordoctor',[website::class,'fordoctor'])->name('fordoctor');
+Route::get('/hospitalequipment',[website::class,'hospitalequipment'])->name('hospitalequipment');
+Route::get('/meetdr',[website::class,'meetdr'])->name('meetdr');
+Route::get('/services',[website::class,'services'])->name('services');
+Route::get('/timetable',[website::class,'timetable'])->name('timetable');
+Route::get('/telemedicine',[website::class,'telemedicine'])->name('telemedicine');
+Route::get('/medical',[website::class,'medical'])->name('medical');
+
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::post('/register', [CustomAuthController::class, 'customRegister'])->name('register.custom');
@@ -30,9 +43,9 @@ Route::post('/invitation/{session}',[Superadmin::class,'register'])->name('accep
 Route::post('/send/admin/superadmin',[Admin::class,'sendtoadmin']);
 
 Route::middleware(['auth'])->group(function () {
-    
+
     Route::prefix('admin')->group(function () {
-    Route::get('/', function(){ return redirect( route('dashboard')); }); 
+    Route::get('/', function(){ return redirect( route('dashboard')); });
     Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
     Route::get('/admins', [Superadmin::class, 'admins'])->name('admins');
     Route::post('/sendadmin',[Superadmin::class,'invitation']);
@@ -45,7 +58,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/contact-us',[ContactUs::class,'page'])->name('cmscontactpage');
     Route::post('/contact-us/update',[ContactUs::class,'contactpdate'])->name('contactpdate');
 
-    
+
 
 });
 });
