@@ -11,15 +11,15 @@
           <a href="{{ Route('dashboard') }}" class="nav-link">Home</a>
         </li>
       </ul>
-  
+
       <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">        
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" title="Change mode" id="mode"  onclick="changemode()" >
             {{-- <input type="checkbox" id="mode" name="mode" value="light" onchange="changemode()" data-bootstrap-switch data-off-color="dark" data-off-text="<i class='fas fa-moon'></i>" data-on-color="light" data-on-text="<i class='fas fa-sun'></i>"> --}}
             <i class="fas fa-sun" style="font-size: 17px"></i>
           </a>
-          
+
         </li>
         <li class="nav-item">
           <a class="nav-link" id="full" title="Full screen" data-widget="fullscreen" role="button">
@@ -55,11 +55,11 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-primary elevation-4 bg-light" id="men" onload="mode()">
       <!-- Brand Logo -->
-  
+
       <!-- Sidebar -->
       <div class="sidebar mt-1">
         <!-- Sidebar user (optional) -->
-  
+
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
@@ -71,7 +71,7 @@
             </div>
           </div>
         </div>
-  
+
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -97,6 +97,14 @@
                 </li>
                 @endif
                 @endif
+                <li class="nav-item">
+                    <a href="{{ Route('cmshomepage') }}" class="nav-link @if(Route::currentRouteName()=='cmshomepage')active @endif">
+                      <i class="fas fa-home"></i>
+                      <p>
+                        Home
+                      </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                   <a href="{{ Route('cmsaboutpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsaboutpage')active @endif">
                     <i class="fas fa-info-circle"></i>

@@ -12,7 +12,11 @@ class website extends Controller
     }
     public function about()
     {
-        return view('website.about');
+        $topimg=file_get_contents(public_path() ."/pages/aboutus.json");
+        $ourvision=file_get_contents(public_path() ."/pages/ourvision.json");
+        $ourmission=file_get_contents(public_path() ."/pages/ourmission.json");
+        $allvalues=file_get_contents(public_path() ."/pages/values.json");
+        return view('website.about',compact('topimg','ourvision','ourmission','allvalues'));
     }
     public function appointment()
     {

@@ -4,7 +4,13 @@
 
 			<!-- BREADCRUMB
 			============================================= -->
-			<div id="breadcrumb" class="division">
+            @php
+            $topimage = json_decode($topimg);
+            $vision = json_decode($ourvision);
+            $mission = json_decode($ourmission);
+            $values=json_decode($allvalues);
+            @endphp
+			<div id="breadcrumb" class="division" style="background-image: url({{ asset($topimage->image) }})">
 				<div class="container">
 					<div class="row">
 						<div class="col">
@@ -40,7 +46,7 @@
 						<!-- INFO IMAGE -->
 						<div class="col-lg-6">
 							<div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-								<img class="img-fluid" src="{{ asset('frontend/images/image/back8.jpeg') }}" alt="info-image">
+								<img class="img-fluid" src="{{ asset($vision->image) }}" alt="info-image">
 							</div>
 						</div>
 
@@ -56,12 +62,7 @@
 								<h3 class="h3-md steelblue-color">Our Vision</h3>
 
 								<!-- Text -->
-								<p>Our vision is to change the face of healthcare delivery and to be one
-									of the market leaders in private healthcare sector in the area by
-									developing an integrated healthcare system, in compliance with
-									international quality standards. We will help the sick become well,
-									and help patients control their health in a lifelong effort at proactive
-									wellness.
+								<p>{!! strip_tags($vision->description) !!}
 
 								</p>
 
@@ -100,45 +101,23 @@
 
 
 									<!-- Text -->
-									<p class="mb-30">Our mission is to improve the level of health care services and to be
-										the choice number one for patients, doctors and medical personnel
-										and to provide exceptional service both medically and socially.
+									<p class="mb-30">{!! strip_tags($mission->description) !!}
 
 									</p>
 
 									<!-- Options List -->
 									<div class="row">
-
-										<div class="col-xl-6">
-
-
-											<!-- Option #2 -->
-											<div class="box-list">
-												<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-												<p class="p-sm">Attract the best doctors and best nurses.</p>
-											</div>
-
-											<!-- Option #3 -->
-											<div class="box-list">
-												<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-												<p class="p-sm">Invest in the latest technology</p>
-											</div>
-
-										</div>
-
-										<div class="col-xl-6">
-
-											<!-- Option #4 -->
-											<div class="box-list">
-												<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-												<p class="p-sm"> Implement all measures necessary to ensure highest level in the
-													operation rooms to be compatible with the trust gained from
-													patients, surgeons and physicians</p>
-											</div>
-
-
-
-										</div>
+                                        @php
+                                        $valmission=json_decode($ourmission,true)
+                                        @endphp
+                                        @foreach ($valmission['values'] as $key=>$value)
+                                        <div class="col-xl-6">
+                                        <div class="box-list">
+                                            <div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
+                                            <p class="p-sm">{{ $key }}</p>
+                                        </div>
+                                        </div>
+                                        @endforeach
 
 									</div>	<!-- End Options List -->
 
@@ -149,7 +128,7 @@
 							<!-- INFO IMAGE -->
 							<div class="col-lg-6">
 								<div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-									<img class="img-fluid" src="{{ asset('frontend/images/image/back2.webp') }}" alt="info-image">
+									<img class="img-fluid" src="{{ asset($mission->image) }}" alt="info-image">
 								</div>
 							</div>
 
@@ -163,7 +142,7 @@
 
 			<div class="col-lg-6">
 				<div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-					<img class="img-fluid" src="{{ asset('frontend/images/image/back8.jpeg') }}" alt="info-image">
+					<img class="img-fluid" src="{{ asset($values->image) }}" alt="info-image">
 				</div>
 			</div>
 
@@ -176,49 +155,26 @@
 
 
 					<!-- Text -->
-					<p class="mb-30">The measure of excellence that we strive to achieve in all
-						that we are and wish to become. We will use measurable outcomes
-						to validate our customer’s satisfaction and our performance. We
-						design and/or modify the way we work so that we continuously
-						improve
+
+                    <p class="mb-30">{!! strip_tags($values->description) !!}
 					</p>
 
 					<!-- Options List -->
 					<div class="row">
-
-						<div class="col-xl-6">
-
-
-							<!-- Option #2 -->
-							<div class="box-list">
-								<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-								<p class="p-sm">Integrity / Trust.</p>
-							</div>
-
-							<!-- Option #3 -->
-							<div class="box-list">
-								<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-								<p class="p-sm">Spiritual</p>
-							</div>
-
-						</div>
-
-						<div class="col-xl-6">
-
-							<!-- Option #4 -->
-							<div class="box-list">
-								<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-								<p class="p-sm"> Respect</p>
-							</div>
-
-<!-- Option #4 -->
-<div class="box-list">
-	<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-	<p class="p-sm"> Commitment & Innovation</p>
-</div>
+                        @php
+                        $value=json_decode($allvalues,true)
+                        @endphp
+                        @foreach ($value['values'] as $key=>$value)
+                        <div class="col-xl-6">
+                        <div class="box-list">
+                            <div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
+                            <p class="p-sm">{{ $key }}</p>
+                        </div>
+                        </div>
+                        @endforeach
 
 
-						</div>
+
 
 					</div>	<!-- End Options List -->
 
