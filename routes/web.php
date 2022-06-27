@@ -53,6 +53,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/{status}/{id}',[Superadmin::class,'changestatus']);
 
     Route::get('home',[Home::class,'page'])->name('cmshomepage');
+    Route::post('home/add/slider',[Home::class,'addslider'])->name('addslider');
+    Route::post('home/update/slider/{id}',[Home::class,'updateslider'])->name('updateslider');
+    Route::get('home/delete/slider/{id}',[Home::class,'deleteslider'])->name('deleteslider');
+    Route::get('home/status/slider/{id}/{status}',[Home::class,'statusslider'])->name('statusslider');
 
     Route::get('/about-us',[AboutUs::class,'page'])->name('cmsaboutpage');
     Route::post('/about-us/update',[AboutUs::class,'aboutupdate'])->name('aboutupdate');

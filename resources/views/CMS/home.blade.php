@@ -1,21 +1,26 @@
 @extends('layouts.master')
 @section('content')
 <div class="content-wrapper">
-    @if (Session::get('err'))
-    <script>
-        var Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-        Toast.fire({
-            icon: 'success',
-            title: '{{ Session::get('err') }}',
-            background: '#20c997',
-        })
-    </script>
-@endif
+    @if(Session::get('err'))
+	<script>
+    $(function() {
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+
+      Toast.fire({
+        icon: 'success',
+        title: "<h6 style='color:white'>{{ Session::get('err') }}</h6>",
+        background: '#20c997',
+        iconColor: 'white',
+        color:'white'
+      })
+    });
+          </script>
+          @endif
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -56,7 +61,7 @@
                     </button>
                 </div>
                 <div class="modal fade" id="addnew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Add New</h5>
@@ -64,7 +69,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
-                        <form action="{{ Route('') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ Route('addslider') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                         <div class="modal-body">
                             <label>Top Image</label>
@@ -105,20 +110,50 @@
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
+                            <th>#</th>
                             <th>Image</th>
                             <th>Title</th>
                             <th>Text</th>
+                            <th>Actions</th>
                         </tr>
                       </thead>
                       <tfoot style="display: table-header-group">
                         <tr class="filters">
                             <th></th>
+                            <th></th>
                             <th><input type="text" placeholder="Title" class="form-control"></th>
                             <th><input type="text" placeholder="Text" class="form-control"></th>
+                            <th></th>
                         </tr>
                       </tfoot>
-                      <tbody></tbody>
+                      <tbody>
+                        @foreach ($slider as $item=>$value)
+                        <tr>
+                            <td>{{ $item+1 }}</td>
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#view{{ $value->id }}">View</button></td>
+                            <td>{{ $value->title }}</td>
+                            <td>{!! strip_tags($value->text) !!}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-secondary">Left</button>
+                                    <button type="button" class="btn btn-secondary">Middle</button>
+                                    <button type="button" class="btn btn-secondary">Right</button>
+                                  </div>
+                            </td>
+                        </tr>
+                        <div class="modal fade" id="view{{ $value->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-body">
+                                <img src="{{ asset($value->image) }}" width="100%" alt="">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        @endforeach
+                      </tbody>
                     </table>
+            </div>
             </div>
 
             <div class="tab-pane fade" id="custom-tabs-our-vision" role="tabpanel"
