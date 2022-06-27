@@ -30,4 +30,38 @@ class Home extends Controller
         $slider->save();
         return back()->with('err','Slider Has Been Added.');
     }
+
+    public function updateslider(Request $request,$id)
+    {
+        $slider=Home_slider::find($id);
+        $slider->title=$request->input('title');
+        $slider->text=$request->input('text');
+        if($request->hasFile('image'))
+        {
+         $image = $request->file('image');
+         $fileName = time().rand(1000,50000) . '.' . $image->getClientOriginalExtension();
+         $image->move('upload/', $fileName);
+         $uploadFile = 'upload/' . $fileName;
+         $image=$uploadFile;
+         $slider->image=$image;
+        }
+        $slider->update();
+        return back()->with('err','Slider Has Been Updated.');
+    }
+
+    public function deleteslider($id)
+    {
+        $slider=Home_slider::find($id);
+        unlink($slider->image);
+        $slider->delete();
+        return back()->with('err','Slider Has Been Deleted.');
+    }
+
+    public function statusslider($id,$status)
+    {
+        $slider=Home_slider::find($id);
+        $slider->status=$status;
+        $slider->update();
+        return back()->with('err','Slider status has been updated.');
+    }
 }

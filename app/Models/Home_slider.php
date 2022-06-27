@@ -9,5 +9,5 @@ class Home_slider extends Model
 {
     use HasFactory;
     protected $table='home_slider';
-    protected $fillable=['title','text','image'];
+    protected $fillable=['title','text','image','status'];
 }

@@ -13,14 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home_slider',function(Blueprint $table){
-            $table->id();
-            $table->text('title')->nullable();
-            $table->text('text')->nullable();
-            $table->text('image')->nullable();
-            $table->text('status')->nullable()->default(1);
-            $table->timestamps();
-        });
+        //
     }
 
     /**

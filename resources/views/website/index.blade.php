@@ -9,175 +9,47 @@
 				<!-- SLIDER -->
 				<div class="slider blue-nav">
 			    	<ul class="slides">
-
-
-				     	<!-- SLIDE #1 -->
-				      	<li id="slide-1">
-
-					        <!-- Background Image -->
-				        	<img src="{{ ('frontend/images/image/back6.jpg') }}" alt="slide-background">
-
-							<!-- Image Caption -->
+                        @foreach ($slider as $item=>$value)
+                        <li id="slide-{{ $item+1 }}">
+				        	<img src="{{ asset($value->image) }}" alt="slide-background">
 		       				<div class="caption d-flex align-items-center right-align">
 		       					<div class="container">
 		       						<div class="row">
 		       							<div class="col-md-9 col-lg-8 col-xl-7">
 		       								<div class="caption-txt text-left white-color">
-
-						       					<!-- Title -->
-
-						       					<h3>integrated medical services</h3>
-												   <h3>for inpatients and
-													outpatients</h3>
-						       					<!-- CONTENT BOX #1 -->
+						       					<h3>{{ $value->title }}</h3>
 												<div class="box-list">
 													<div class="box-list-icon"><i class="fa fa-genderless"></i></div>
-													<p class="p-md">These wide range highly qualified
-														services are offered in valuable competitive prices in comparison to same level
-														hospitals
-													</p>
+													<p class="p-md">{!! strip_tags($value->text) !!}</p>
 												</div>
-												<div class="box-list">
-													<div class="box-list-icon"><i class="fa fa-genderless"></i></div>
-													<p class="p-md">In addition to high quality medical services, we offer ultimate hospitality
-														standard that suits different tastes and requirements.
-													</p>
-												</div>
-				                                <!-- CONTENT BOX #2 -->
-
-
 											</div>
 										</div>
-									</div>  <!-- End row -->
-								</div>  <!-- End container -->
-					        </div>	<!-- End Image Caption -->
+									</div>
+								</div>
+					        </div>
 
-					    </li>	<!-- END SLIDE #1 -->
-
-
-				      	<!-- SLIDE #2 -->
-				      	<li id="slide-2">
-
-				        	<!-- Background Image -->
-				        	<img src="{{ ('frontend/images/image/back7.jpg') }}" alt="slide-background">
-
-							<!-- Image Caption -->
-	        				<div class="caption d-flex align-items-center right-align">
-	        					<div class="container">
-		       						<div class="row">
-		       							<div class="col-md-9 col-lg-8 col-xl-7">
-		       								<div class="caption-txt text-left white-color">
-
-					        					<!-- Title -->
-								         	 	<h3>Inpatient general</h3>
-								         	 	<h3>and post-operative
-													accommodation </h3>
-
-									          	<!-- Text -->
-												<p class="p-md">Cure Hospital is designed to offer calm clean comfortable and safe
-													environment for our customers.
-												</p>
-												<p class="p-md">The inpatient wards offer different
-													varieties of accommodation based on high level design, decorations
-													and facilities to offer the best available environment and hospitality.</p>
-											</div>
-				         				</div>
-									</div>  <!-- End row -->
-								</div>  <!-- End container -->
-					        </div>	<!-- End Image Caption -->
-
-				     	</li>	<!-- END SLIDE #2 -->
-
-
-				     	<!-- SLIDE #3 -->
-				      	<li id="slide-3">
-
-				      		<!-- Background Image -->
-				        	<img src="{{ ('frontend/images/image/back8.jpeg') }}" alt="slide-background">
-
-				        	<!-- Image Caption -->
-		       			 	<div class="caption d-flex align-items-center right-align">
-		       			 		<div class="container">
-		       						<div class="row">
-		       							<div class="col-md-9 col-lg-8 col-xl-7">
-		       								<div class="caption-txt text-left white-color">
-
-						       			 		<!-- Title -->
-
-									        	<h3>we offer best available intensive
-													care services</h3>
-
-									        	<!-- CONTENT BOX #1 -->
-												<div class="box-list">
-													<div class="box-list-icon"><i class="fa fa-genderless"></i></div>
-													<p class="p-md">The ICU is ready to receive wide variety of cases with 10 highly equipped beds
-														packed with all the required machines and devices
-													</p>
-												</div>
-
-				                                <!-- CONTENT BOX #2 -->
-												<div class="box-list">
-													<div class="box-list-icon"><i class="fa fa-genderless"></i></div>
-													<p class="p-md">The ICU well selected specialist physicians and highly qualified nurses are ready
-														to offer the best medical care for patient
-													</p>
-												</div>
-
-											</div>
-					        			</div>
-									</div>  <!-- End row -->
-								</div>  <!-- End container -->
-					        </div>	<!-- End Image Caption -->
-
-				     	</li>	<!-- END SLIDE #3 -->
-
+					    </li>
+                        @endforeach
 				    </ul>
-			  	</div>	<!-- END SLIDER -->
-
-
-			</section>	<!-- END HERO-11 -->
-
-
-
-
-			<!-- ABOUT-2
-			============================================= -->
+			  	</div>
+			</section>
 			<section id="about-2" class="about-section division">
 				<div class="container">
 					<div class="abox-2-holder">
 						<div class="row">
-
-
-							<!-- ABOUT BOX #1 -->
 							<div class="col-md-12 col-lg-4">
 								<div class="abox-2">
-
-									<!-- Title -->
 									<h5 class="h5-md steelblue-color">Opening Hours</h5>
-
-									<!-- Table -->
 									<table class="table">
 										<tbody>
-										    <tr>
-										      	<td>Mon – Wed</td>
-										      	<td> - </td>
-										      	<td class="text-right">9:00 AM - 7:00 PM</td>
-										    </tr>
-										    <tr>
-										      	<td>Thursday</td>
-										      	<td> - </td>
-										      	<td class="text-right">9:00 AM - 6:30 PM</td>
-										    </tr>
-										     <tr>
-										      	<td>Friday</td>
-										      	<td> - </td>
-										      	<td class="text-right">9:00 AM - 6:00 PM</td>
-										    </tr>
-										    <tr class="last-tr">
-										      	<td>Sun - Sun</td>
-										      	<td>-</td>
-										      	<td class="text-right">CLOSED</td>
-										   	 </tr>
+                                            @foreach ($opening as $key=>$value)
+                                            <tr>
+                                                <td>{{ $key }}</td>
+                                                <td> - </td>
+                                                <td class="text-right">{{ $value }}</td>
+                                          </tr>
+                                            @endforeach
+
 										  </tbody>
 									</table>
 
@@ -188,17 +60,9 @@
 							<!-- ABOUT BOX #2 -->
 							<div class="col-md-6 col-lg-4">
 								<div class="abox-2">
-
-									<h5 class="h5-md steelblue-color">Doctors Timetable</h5>
-
-									<!-- Text -->
-									<p>Cure Hospital is honored to earn the trust of
-										each of our valuable consultants
+									<h5 class="h5-md steelblue-color"></h5>
+									<p>
 									</p>
-
-									<!-- Button -->
-									<a href="timetable-1.html" class="btn btn-sm btn-blue blue-hover mt-25">View Timetable</a>
-
 								</div>
 							</div>
 

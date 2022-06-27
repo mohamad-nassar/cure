@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Home_slider;
 use Illuminate\Http\Request;
 
 class website extends Controller
 {
     public function  index()
     {
-        return view('website.index');
+        $slider=Home_slider::where('status',1)->get();
+        $opening=json_decode(file_get_contents(public_path() ."/pages/opening.json"));
+        return view('website.index',compact('slider','opening'));
     }
     public function about()
     {
