@@ -114,6 +114,14 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ Route('cmsservicepage') }}" class="nav-link @if(Route::currentRouteName()=='cmsservicepage')active @endif">
+                        <i class="fas fa-briefcase-medical"></i>
+                      <p>
+                        Services
+                      </p>
+                    </a>
+                  </li>
+                <li class="nav-item">
                   <a href="{{ Route('cmscontactpage') }}" class="nav-link @if(Route::currentRouteName()=='cmscontactpage')active @endif">
                     <i class="fas fa-comment"></i>
                     <p>

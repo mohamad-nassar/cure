@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home_service',function(Blueprint $table){
+        Schema::create('services',function(Blueprint $table){
             $table->id();
             $table->text('title')->nullable();
-            $table->text('text')->nullable();
+            $table->text('caption')->nullable();
             $table->text('image')->nullable();
-            $table->text('status')->nullable()->default(1);
+            $table->text('description')->nullable();
+            $table->integer('status')->default(1)->nullable();
             $table->timestamps();
         });
     }

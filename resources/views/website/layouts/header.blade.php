@@ -127,8 +127,8 @@ About Our Company
 
 
 							    <!-- SIMPLE NAVIGATION LINK -->
-								{{-- <li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='telemedicine') active @endif" href="/telemedicine">Telemedicine</a></li>
-								<li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='medical') active @endif" href="/medical">Medical Tourism</a></li> --}}
+								<li class="nl-simple" aria-haspopup="true"><a href="#">Telemedicine</a></li>
+								<li class="nl-simple" aria-haspopup="true"><a href="#">Medical Tourism</a></li>
 							    <li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='department') active @endif" href="/department">Our Departments</a></li>
 								<li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='contact') active @endif" href="/contact">Contact Us</a></li>
 							    <!-- NAVIGATION MENU BUTTON -->

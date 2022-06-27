@@ -91,10 +91,10 @@ function matchStart (term, text) {
   if (text.toUpperCase().indexOf(term.toUpperCase()) == 0) {
     return true;
   }
- 
+
   return false;
 }
- 
+
 $.fn.select2.amd.require(['select2/compat/matcher'], function (oldMatcher) {
   $(".select2").select2({
     matcher: oldMatcher(matchStart)
@@ -117,7 +117,7 @@ $("input[data-bootstrap-switch]").each(function(){
     });
     $(function () {
     bsCustomFileInput.init();
-  }); 
+  });
 </script>
 <script>
   if ($(window).width() > 720) {
@@ -133,15 +133,10 @@ $("input[data-bootstrap-switch]").each(function(){
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "searching":false
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
+    $("#example2").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "searching":false
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 </script>
 <script>
@@ -221,12 +216,12 @@ function changemode()
   if(localStorage.getItem('mode')==='light' || !localStorage.getItem('mode'))
   {
     localStorage.setItem('mode','dark');
-    mode();  
+    mode();
   }
   else if(localStorage.getItem('mode')==='dark')
   {
     localStorage.setItem('mode','light');
-    mode();  
+    mode();
   }
 
 }

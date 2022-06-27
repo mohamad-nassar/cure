@@ -7,6 +7,7 @@ use App\Http\Controllers\Superadmin;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\ContactUs;
 use App\Http\Controllers\Home;
+use App\Http\Controllers\Service;
 use App\Http\Controllers\website;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/our-vision/update',[AboutUs::class,'visionupdate'])->name('visionupdate');
     Route::post('/our-mission/update',[AboutUs::class,'missionupdate'])->name('missionupdate');
     Route::post('/values/update',[AboutUs::class,'valuesupdate'])->name('valuesupdate');
+
+    Route::get('/service',[Service::class,'page'])->name('cmsservicepage');
+    Route::post('/service/add',[Service::class,'addnewservice'])->name('addnewservice');
+    Route::post('/service/update/{id}',[Service::class,'updateservice'])->name('updateservice');
+    Route::get('/service/delete/{id}',[Service::class,'deleteservice'])->name('deleteservice');
+    Route::get('/service/status/{id}/{status}',[Service::class,'statusservice'])->name('statusservice');
 
     Route::get('/contact-us',[ContactUs::class,'page'])->name('cmscontactpage');
     Route::post('/contact-us/update',[ContactUs::class,'contactpdate'])->name('contactpdate');
