@@ -28,7 +28,7 @@ class invitation extends Mailable
      */
     public function build()
     {
-        $url="http://192.168.0.106:8000/invitation/".$this->data['session'];
+        $url=route('invit',$this->data['session']);
         return $this->view('emails.invit',compact('url'))->from('moenassar1@outlook.com','MOE')->subject('Become an adminitartor');
     }
 }

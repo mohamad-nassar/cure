@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home_slider;
+use App\Models\Who;
 use Illuminate\Http\Request;
 
 class Home extends Controller
@@ -10,7 +11,8 @@ class Home extends Controller
     public function page()
     {
         $slider=Home_slider::all();
-        return view('CMS.home',compact('slider'));
+        $who=Who::first();
+        return view('CMS.home',compact('slider','who'));
     }
 
     public function addslider(Request $request)
@@ -63,5 +65,22 @@ class Home extends Controller
         $slider->status=$status;
         $slider->update();
         return back()->with('err','Slider status has been updated.');
+    }
+
+    public function updatewho(Request $request)
+    {
+        $who=Who::first();
+        $who->description=$request->input('description');
+        if($request->hasFile('image'))
+        {
+         $image = $request->file('image');
+         $fileName = time().rand(1000,50000) . '.' . $image->getClientOriginalExtension();
+         $image->move('upload/', $fileName);
+         $uploadFile = 'upload/' . $fileName;
+         $image=$uploadFile;
+         $who->image=$image;
+        }
+        $who->update();
+        return back()->with('err','Who Are We has been updated.');
     }
 }

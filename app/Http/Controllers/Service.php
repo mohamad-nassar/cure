@@ -37,7 +37,7 @@ class Service extends Controller
         $service->caption=$request->input('caption');
         if($request->hasFile('image'))
         {
-            // unlink($service->image);
+            unlink($service->image);
          $image = $request->file('image');
          $fileName = time().rand(1000,50000) . '.' . $image->getClientOriginalExtension();
          $image->move('upload/', $fileName);

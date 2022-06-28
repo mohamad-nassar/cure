@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     "use strict";
 
-    $(".appointment-form").submit(function(e) {
+    $(".appointment-formm").submit(function(e) {
         e.preventDefault();
         var department = $(".department");
         var doctor = $(".doctor");
@@ -92,7 +92,7 @@ $(document).ready(function() {
     $("#reset").on('click', function() {
         $(".form-control").removeClass("success").removeClass("error");
     });
-    
+
 })
 
 

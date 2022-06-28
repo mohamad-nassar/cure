@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     "use strict";
 
-    $(".contact-form").submit(function(e) {
+    $(".contact-formm").submit(function(e) {
         e.preventDefault();
         var name = $(".name");
         var email = $(".email");
@@ -76,7 +76,7 @@ $(document).ready(function() {
     $("#reset").on('click', function() {
         $(".form-control").removeClass("success").removeClass("error");
     });
-    
+
 })
 
 

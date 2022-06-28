@@ -193,7 +193,7 @@
 						<!-- IMAGE BLOCK -->
 						<div class="col-lg-6">
 							<div class="about-img text-center wow fadeInUp" data-wow-delay="0.6s">
-								<img class="img-fluid" src="{{ ('frontend/images/image/doctors.jpg') }}" alt="about-image">
+								<img class="img-fluid" src="{{ asset($who->image) }}" alt="about-image">
 							</div>
 						</div>
 
@@ -209,14 +209,8 @@
 								<h3 class="h3-md steelblue-color">WHO ARE WE </h3>
 
 								<!-- Text -->
-								<p>Cure hospital is established to offer wide range of specialized high quality
-									medical services.Cure Hospital provides integrated medical services for inpatients and
-									outpatients as well as surgical services. These wide range highly qualified
-									services are offered in valuable competitive prices in comparison to same level
-									hospitals.
-
-								</p>
-								<img class="img-fluid" src="{{ asset('frontend/images/image/coeurlove.webp') }}" width="200" height="34" alt="signature-image">
+								{!! html_entity_decode($who->description) !!}
+								{{-- <img class="img-fluid" src="{{ asset($who->image) }}" width="200" height="34" alt="signature-image"> --}}
 
 
 								<!-- Singnature -->
@@ -258,149 +252,24 @@
 
 			 		<div class="row">
 
+                        @foreach ($departments as $department)
+                            <!-- SERVICE BOX #1 -->
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="sbox-2 wow fadeInUp" data-wow-delay="0.4s">
+                                    <a href="#">
 
-			 			<!-- SERVICE BOX #1 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="0.4s">
-								<a href="#">
+                                        <!-- Icon  -->
+                                        <div class="sbox-2-icon icon-xl">
+                                            <span class="{{ $department->icon }}"></span>
+                                        </div>
 
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-083-stethoscope"></span>
-									</div>
+                                        <!-- Title -->
+                                        <h5 class="h5-sm sbox-2-title steelblue-color">{{ $department->title }}</h5>
 
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">Pediatrics</h5>
-
-								</a>
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #2 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="0.6s">
-								<a href="#">
-
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-047-head"></span>
-									</div>
-
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">Neurology</h5>
-
-								</a>
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #3 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="0.8s">
-								<a href="#">
-
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-015-blood-donation-1"></span>
-									</div>
-
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">Haematology</h5>
-
-								</a>
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #4 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="1s">
-								<a href="#">
-
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-048-lungs"></span>
-									</div>
-
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">X-Ray Diagnostic</h5>
-
-								</a>
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #5 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="0.4s">
-								<a href="#">
-
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-060-cardiogram-4"></span>
-									</div>
-
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">Cardiology</h5>
-
-								</a>
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #6 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="0.6s">
-								<a href="#">
-
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-031-scanner"></span>
-									</div>
-
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">MRI</h5>
-
-								</a>
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #7 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="0.8s">
-								<a href="#">
-
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-076-microscope"></span>
-									</div>
-
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">Laboratory Services</h5>
-
-								</a>
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #8 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-2 wow fadeInUp" data-wow-delay="1s">
-								<a href="#">
-
-									<!-- Icon  -->
-									<div class="sbox-2-icon icon-xl">
-										<span class="flaticon-068-ambulance-3"></span>
-									</div>
-
-									<!-- Title -->
-									<h5 class="h5-sm sbox-2-title steelblue-color">Emergency Help</h5>
-
-								</a>
-							</div>
-						</div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
 
 
 			 		</div>	   <!-- End row -->
@@ -561,34 +430,13 @@
 				 			<!-- TABS NAVIGATION -->
 							<div id="tabs-nav" class="list-group text-center">
 							    <ul class="nav nav-pills" id="pills-tab" role="tablist">
-
-							    	<!-- TAB-1 LINK -->
-								  	<li class="nav-item icon-xs">
-								    	<a class="nav-link active" id="tab1-list" data-toggle="pill" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
-								    		<span class="flaticon-083-stethoscope"></span> Pediatrics
+                                    @foreach ($departments as $department)
+                                    <li class="nav-item icon-xs">
+								    	<a class="nav-link @if($loop->first) active @endif" id="tab{{ $department->id }}-list" data-toggle="pill" href="#tab-{{ $department->id }}" role="tab" aria-controls="tab-1" aria-selected="true">
+								    		<span class="flaticon-083-stethoscope"></span> {{ $department->title }}
 								    	</a>
 								  	</li>
-
-								  	<!-- TAB-2 LINK -->
-									<li class="nav-item icon-xs">
-									    <a class="nav-link" id="tab2-list" data-toggle="pill" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">
-									       <span class="flaticon-005-blood-donation-3"></span> Hematology
-									    </a>
-									</li>
-
-									<!-- TAB-3 LINK -->
-									<li class="nav-item icon-xs">
-									    <a class="nav-link" id="tab3-list" data-toggle="pill" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">
-									       <span class="flaticon-031-scanner"></span> MRI
-									    </a>
-									</li>
-
-									<!-- TAB-4 LINK -->
-									<li class="nav-item icon-xs">
-									    <a class="nav-link" id="tab4-list" data-toggle="pill" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">
-									       <span class="flaticon-048-lungs"></span> X-Ray Diagnostic
-									    </a>
-									</li>
+                                    @endforeach
 
 								</ul>
 
@@ -598,341 +446,38 @@
 							<!-- TABS CONTENT -->
 							<div class="tab-content" id="pills-tabContent">
 
+                                @foreach ($departments as $department)
+<!-- TAB-1 CONTENT -->
+<div class="tab-pane fade @if($loop->first) show active @endif " id="tab-{{ $department->id }}" role="tabpanel" aria-labelledby="tab1-list">
+    <div class="row d-flex align-items-center">
 
-								<!-- TAB-1 CONTENT -->
-								<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1-list">
-									<div class="row d-flex align-items-center">
 
+        <!-- TAB-1 IMAGE -->
+        <div class="col-lg-6">
+            <div class="tab-img">
+                <img class="img-fluid" src="{{ ('frontend/images/image/pedia.jpg') }}" alt="tab-image">
+            </div>
+        </div>
 
-										<!-- TAB-1 IMAGE -->
-										<div class="col-lg-6">
-											<div class="tab-img">
-												<img class="img-fluid" src="{{ ('frontend/images/image/pedia.jpg') }}" alt="tab-image">
-											</div>
-										</div>
 
+        <!-- TAB-1 TEXT -->
+        <div class="col-lg-6">
+            <div class="txt-block pc-30">
 
-										<!-- TAB-1 TEXT -->
-										<div class="col-lg-6">
-											<div class="txt-block pc-30">
+                <!-- Title -->
+                <h3 class="h3-md steelblue-color">{{ $department->title }}</h3>
 
-												<!-- Title -->
-												<h3 class="h3-md steelblue-color">Pediatrics</h3>
+                <!-- Text -->
+                {!! html_entity_decode($department->text) !!}
+                <a href="#" class="btn btn-blue blue-hover mt-30">View More Details</a>
 
-												<!-- Text -->
-												<p class="mb-30">A Paediatrician, or Baby Doctor specialises in caring for young individuals, from babies to young adults. Their primary duties include providing general medical care for children, conducting immunisations for infants and children and monitoring their growth and development.
-												</p>
+            </div>
+        </div>	<!-- END TAB-1 TEXT -->
 
-												<!-- Options List -->
-												<div class="row">
 
-													<div class="col-xl-6">
-
-														<!-- Option #1 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Pediatric surgery clinic</p>
-														</div>
-
-														<!-- Option #2 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Pediatric surgery clinic</p>
-														</div>
-
-
-
-													</div>
-
-													<div class="col-xl-6">
-
-														<!-- Option #4 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Pediatric surgery clinic</p>
-														</div>
-
-														<!-- Option #5 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Pediatric surgery clinic</p>
-														</div>
-
-
-													</div>
-
-												</div>	<!-- End Options List -->
-
-												<!-- Button -->
-												<a href="#" class="btn btn-blue blue-hover mt-30">View More Details</a>
-
-											</div>
-										</div>	<!-- END TAB-1 TEXT -->
-
-
-									</div>
-								</div>	<!-- END TAB-1 CONTENT -->
-
-
-								<!-- TAB-2 CONTENT -->
-								<div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2-list">
-									<div class="row d-flex align-items-center">
-
-
-										<!-- TAB-2 IMAGE -->
-										<div class="col-lg-6">
-											<div class="tab-imgs">
-												<img class="img-fluid" src="{{ ('frontend/images/image/hemog.jpg') }}" alt="tab-image">
-											</div>
-										</div>
-
-
-										<!-- TAB-2 TEXT -->
-										<div class="col-lg-6">
-											<div class="txt-block pc-30">
-
-												<!-- Title -->
-												<h3 class="h3-md steelblue-color">Hematology</h3>
-
-												<!-- Text -->
-												<p class="mb-30">Hematology is the branch of medicine concerned with the study of the cause, prognosis, treatment, and prevention of diseases related to blood.
-													hematologists are experts in treating blood cancers and non-cancerous blood disorders.
-												<!-- Options List -->
-												<div class="row">
-
-													<div class="col-xl-6">
-
-														<!-- Option #1 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
-														</div>
-
-														<!-- Option #2 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Magna luctus tempor</p>
-														</div>
-
-														<!-- Option #3 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
-														</div>
-
-													</div>
-
-													<div class="col-xl-6">
-
-														<!-- Option #4 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
-														</div>
-
-														<!-- Option #5 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
-														</div>
-
-														<!-- Option #6 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">An enim nullam tempor</p>
-														</div>
-
-													</div>
-
-												</div>	<!-- End Options List -->
-
-												<!-- Button -->
-												<a href="#" class="btn btn-blue blue-hover mt-30">View More Details</a>
-
-											</div>
-										</div>	<!-- END TAB-2 TEXT -->
-
-
-									</div>
-								</div>	<!-- END TAB-2 CONTENT -->
-
-
-								<!-- TAB-3 CONTENT -->
-								<div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab3-list">
-									<div class="row d-flex align-items-center">
-
-
-										<!-- TAB-3 IMAGE -->
-										<div class="col-lg-6">
-											<div class="tab-img">
-												<img class="img-fluid" src="{{ ('frontend/images/image/mri.jpg') }}" alt="tab-image">
-											</div>
-										</div>
-
-
-										<!-- TAB-3 TEXT -->
-										<div class="col-lg-6">
-											<div class="txt-block pc-30">
-
-												<!-- Title -->
-												<h3 class="h3-md steelblue-color">MRI Diagnostic</h3>
-
-												<!-- Text -->
-												<p class="mb-30">An enim nullam tempor sapien gravida donec enim ipsum blandit
-												   porta justo integer odio velna vitae auctor integer congue magna at pretium
-												   purus pretium ligula rutrum itae laoreet augue in cubilia laoreet an augue
-												   egestas ipsum vitae emo ligula vitae arcu mollis blandit ultrice ligula egestas
-												   magna suscipit
-												</p>
-
-												<!-- Options List -->
-												<div class="row">
-
-													<div class="col-xl-6">
-
-														<!-- Option #1 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
-														</div>
-
-														<!-- Option #2 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Magna luctus tempor</p>
-														</div>
-
-														<!-- Option #3 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
-														</div>
-
-													</div>
-
-													<div class="col-xl-6">
-
-														<!-- Option #4 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
-														</div>
-
-														<!-- Option #5 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
-														</div>
-
-														<!-- Option #6 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">An enim nullam tempor</p>
-														</div>
-
-													</div>
-
-												</div>	<!-- End Options List -->
-
-												<!-- Button -->
-												<a href="#" class="btn btn-blue blue-hover mt-30">View More Details</a>
-
-											</div>
-										</div>	<!-- END TAB-3 TEXT -->
-
-
-									</div>
-								</div>	<!-- END TAB-3 CONTENT -->
-
-
-								<!-- TAB-4 CONTENT -->
-								<div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="tab4-list">
-									<div class="row d-flex align-items-center">
-
-
-										<!-- TAB-4 IMAGE -->
-										<div class="col-lg-6">
-											<div class="tab-img">
-												<img class="img-fluid" src="{{ ('frontend/images/image/xray.jpg') }}" alt="tab-image">
-											</div>
-										</div>
-
-
-										<!-- TAB-4 TEXT -->
-										<div class="col-lg-6">
-											<div class="txt-block pc-30">
-
-												<!-- Title -->
-												<h3 class="h3-md steelblue-color">X-Ray Diagnostic</h3>
-
-												<!-- Text -->
-												<p class="mb-30">An enim nullam tempor sapien gravida donec enim ipsum blandit
-												   porta justo integer odio velna vitae auctor integer congue magna at pretium
-												   purus pretium ligula rutrum itae laoreet augue in cubilia laoreet an augue
-												   egestas ipsum vitae emo ligula vitae arcu mollis blandit ultrice ligula egestas
-												   magna suscipit
-												</p>
-
-												<!-- Options List -->
-												<div class="row">
-
-													<div class="col-xl-6">
-
-														<!-- Option #1 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
-														</div>
-
-														<!-- Option #2 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Magna luctus tempor</p>
-														</div>
-
-														<!-- Option #3 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
-														</div>
-
-													</div>
-
-													<div class="col-xl-6">
-
-														<!-- Option #4 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
-														</div>
-
-														<!-- Option #5 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
-														</div>
-
-														<!-- Option #6 -->
-														<div class="box-list">
-															<div class="box-list-icon blue-color"><i class="fa fa-angle-double-right"></i></div>
-															<p class="p-sm">An enim nullam tempor</p>
-														</div>
-
-													</div>
-
-												</div>	<!-- End Options List -->
-
-												<!-- Button -->
-												<a href="#" class="btn btn-blue blue-hover mt-30">View More Details</a>
-
-											</div>
-										</div>	<!-- END TAB-4 TEXT -->
-
-
-									</div>
-								</div>	<!-- END TAB-4 CONTENT -->
-
-
+    </div>
+</div>	<!-- END TAB-1 CONTENT -->
+                                @endforeach
 							</div>	<!-- END TABS CONTENT -->
 
 
@@ -966,22 +511,13 @@
 								<!-- Table -->
 								<table class="table">
 									<tbody>
-									    <tr>
-									      	<td>Mon – Friday</td>
-									      	<td> - </td>
-									      	<td class="text-right">9:00 AM - 8:00 PM</td>
-									    </tr>
-
-									     <tr>
-									      	<td>Saturday</td>
-									      	<td> - </td>
-									      	<td class="text-right">9:00 AM - 4:00 PM</td>
-									    </tr>
-									    <tr class="last-tr">
-									      	<td> Sun</td>
-									      	<td>-</td>
-									      	<td class="text-right">Closed</td>
-									   	 </tr>
+                                        @foreach ($opening as $key=>$value)
+                                        <tr>
+                                            <td>{{ $key }}</td>
+                                            <td> - </td>
+                                            <td class="text-right">{{ $value }}</td>
+                                      </tr>
+                                        @endforeach
 									  </tbody>
 								</table>
 

@@ -30,7 +30,7 @@
 
 		<!-- FONT ICONS -->
 		<link href="{{ asset('../../../../../releases/v5.7.2/css/all-1.css') }}" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">
-		<link href="{{ ('frontend/css/flaticon-1.css') }}" rel="stylesheet">
+		<link href="{{ asset('frontend/css/flaticon-1.css') }}" rel="stylesheet">
 
 		<!-- PLUGINS STYLESHEET -->
 		<link href="{{ asset('frontend/css/menu-1.css') }}" rel="stylesheet">

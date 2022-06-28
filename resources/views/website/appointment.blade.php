@@ -1,7 +1,10 @@
 @extends('website.layouts.master')
 @section('content')
 
-
+@php
+$contact=json_decode(file_get_contents(public_path() . "/pages/contactus.json"));
+$opening=json_decode(file_get_contents(public_path() . "/pages/opening.json"));
+@endphp
 			<!-- BREADCRUMB
 			============================================= -->
 			<div id="breadcrumb" class="division">
@@ -44,20 +47,15 @@
 
 								<!-- APPOINTMENT FORM -->
 								<div id="appointment-form-holder" class="text-center">
-									<form name="appointmentform" class="row appointment-form">
-
+									<form action="{{ Route('sendappointment') }}" method="POST" class="row appointment-form" autocomplete="off">
+                                        @csrf
 										<!-- Form Select -->
 						                <div id="input-department" class="col-md-12 input-department">
 						                    <select id="inlineFormCustomSelect1" name="department" class="custom-select department" required="">
 						                        <option value="">Select Department</option>
-						                      	<option>Pediatrics Department</option>
-						                      	<option>Neurology Department</option>
-						                      	<option>Haematology Department</option>
-						                      	<option>X-Ray Diagnostic Department</option>
-						                      	<option>Cardiology Department</option>
-						                      	<option>MRI Department</option>
-						                      	<option>Laboratory Services</option>
-						                      	<option>Other</option>
+						                      	@foreach ($departments as $department)
+                                                    <option value="{{ $department->id }}">{{ $department->title }}</option>
+                                                @endforeach
 						                    </select>
 						                </div>
 
@@ -65,12 +63,9 @@
 						                <div id="input-doctor" class="col-md-12 input-doctor">
 						                    <select id="inlineFormCustomSelect2" name="doctor" class="custom-select doctor" required="">
 						                        <option value="">Select Doctor</option>
-						                      	<option>Dr Layla</option>
-						                      	<option>Dr Layla</option>
-						                      	<option>Dr Layla</option>
-						                      	<option>Dr Layla</option>
-						                      	<option>Dr Layla</option>
-						                      	<option>Other</option>
+                                                @foreach ($doctors as $doctor)
+                                                <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                                            @endforeach
 						                    </select>
 						                </div>
 
@@ -78,8 +73,8 @@
 						                <div id="input-patient" class="col-md-12 input-patient">
 						                    <select id="inlineFormCustomSelect3" name="patient" class="custom-select patient" required="">
 						                        <option value="">Have You Visited Us Before?*</option>
-												<option>New Patient</option>
-												<option>Other</option>
+												<option value="New">New Patient</option>
+												<option value="Other">Other</option>
 						                    </select>
 						                </div>
 
@@ -111,9 +106,6 @@
 						                </div>
 
 						                <!-- Contact Form Message -->
-						                <div class="col-lg-12 appointment-form-msg text-center">
-						                	<div class="sending-msg"><span class="loading"></span></div>
-						                </div>
 
 					                </form>
 
@@ -134,7 +126,7 @@
 								<h5 class="h5-sm steelblue-color">The Heart Of Clinic</h5>
 
 								<!-- Head of Clinic -->
-								<div class="txt-widget-unit mb-15 clearfix d-flex align-items-center">
+								{{-- <div class="txt-widget-unit mb-15 clearfix d-flex align-items-center">
 
 									<!-- Avatar -->
 									<div class="txt-widget-avatar">
@@ -149,7 +141,7 @@
 										<p class="blue-color">1-222-222-222</p>
 									</div>
 
-								</div>	<!-- End Head of Clinic -->
+								</div>	<!-- End Head of Clinic --> --}}
 
 								<!-- Text -->
 								<p class="p-sm">Know your Doctor to book confirmed doctor Appointment effortlessly with clinic details of practice location to engage with patients effortlessly.
@@ -174,26 +166,14 @@
 								<!-- Table -->
 								<table class="table">
 									<tbody>
-									    <tr>
-									      	<td>Mon – Wed</td>
-									      	<td> - </td>
-									      	<td class="text-right">9:00 AM - 7:00 PM</td>
-									    </tr>
-									    <tr>
-									      	<td>Thursday</td>
-									      	<td> - </td>
-									      	<td class="text-right">9:00 AM - 6:30 PM</td>
-									    </tr>
-									     <tr>
-									      	<td>Friday</td>
-									      	<td> - </td>
-									      	<td class="text-right">9:00 AM - 6:00 PM</td>
-									    </tr>
-									    <tr class="last-tr">
-									      	<td>Sun - Sun</td>
-									      	<td>-</td>
-									      	<td class="text-right">CLOSED</td>
-									   	 </tr>
+									   @foreach ($opening as $key=>$value)
+                                       <tr>
+                                        <td>{{ $key }}</td>
+                                        <td> - </td>
+                                        <td class="text-right">{{ $value }}</td>
+                                        </tr>
+
+                                       @endforeach
 									  </tbody>
 								</table>
 

@@ -5,7 +5,11 @@ use App\Http\Controllers\CMS;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Superadmin;
 use App\Http\Controllers\AboutUs;
+use App\Http\Controllers\Appointment;
 use App\Http\Controllers\ContactUs;
+use App\Http\Controllers\Department;
+use App\Http\Controllers\Doctor;
+use App\Http\Controllers\Equipement;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\Service;
 use App\Http\Controllers\website;
@@ -26,7 +30,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[website::class,'index'])->name('index');
 Route::get('/about',[website::class,'about'])->name('about');
 Route::get('/appointment',[website::class,'appointment'])->name('appointment');
+Route::post('/appointment/send',[website::class,'sendappointment'])->name('sendappointment');
 Route::get('/contact',[website::class,'contact'])->name('contact');
+Route::post('/contact/send',[website::class,'sendcontact'])->name('sendcontact');
 Route::get('/department',[website::class,'department'])->name('department');
 Route::get('/fordoctor',[website::class,'fordoctor'])->name('fordoctor');
 Route::get('/hospitalequipment',[website::class,'hospitalequipment'])->name('hospitalequipment');
@@ -56,6 +62,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('home',[Home::class,'page'])->name('cmshomepage');
     Route::post('home/add/slider',[Home::class,'addslider'])->name('addslider');
     Route::post('home/update/slider/{id}',[Home::class,'updateslider'])->name('updateslider');
+    Route::post('home/update/who',[Home::class,'updatewho'])->name('updatewho');
     Route::get('home/delete/slider/{id}',[Home::class,'deleteslider'])->name('deleteslider');
     Route::get('home/status/slider/{id}/{status}',[Home::class,'statusslider'])->name('statusslider');
 
@@ -70,6 +77,25 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/service/update/{id}',[Service::class,'updateservice'])->name('updateservice');
     Route::get('/service/delete/{id}',[Service::class,'deleteservice'])->name('deleteservice');
     Route::get('/service/status/{id}/{status}',[Service::class,'statusservice'])->name('statusservice');
+
+    Route::get('/doctors',[Doctor::class,'page'])->name('cmsdoctorpage');
+    Route::post('/doctors/add',[Doctor::class,'addnewdoctor'])->name('addnewdoctor');
+    Route::post('/doctors/update/{id}',[Doctor::class,'updatedoctor'])->name('updatedoctor');
+    Route::get('/doctors/delete/{id}',[Doctor::class,'deletedoctor'])->name('deletedoctor');
+    Route::get('/doctors/status/{id}/{status}',[Doctor::class,'statusdoctor'])->name('statusdoctor');
+
+    Route::get('/equipement',[Equipement::class,'page'])->name('cmsequipementpage');
+    Route::post('/equipement/add',[Equipement::class,'equipementuploadimage'])->name('equipementuploadimage');
+    Route::post('/equipement/delete/{id}',[Equipement::class,'equipementdeleteimage'])->name('equipementdeleteimage');
+
+    Route::get('/department',[Department::class,'page'])->name('cmsdepartmentpage');
+    Route::post('/department/add',[Department::class,'addnewdepartment'])->name('addnewdepartment');
+    Route::post('/department/update/{id}',[Department::class,'updatedepartment'])->name('updatedepartment');
+    Route::get('/department/delete/{id}',[Department::class,'deletedepartment'])->name('deletedepartment');
+    Route::get('/department/status/{id}/{status}',[Department::class,'statusdepartment'])->name('statusdepartment');
+
+    Route::get('/appointment',[Appointment::class,'page'])->name('cmsappointmentpage');
+    Route::post('/appointment/update/{id}',[Appointment::class,'updateappointment'])->name('updateappointment');
 
     Route::get('/contact-us',[ContactUs::class,'page'])->name('cmscontactpage');
     Route::post('/contact-us/update',[ContactUs::class,'contactpdate'])->name('contactpdate');

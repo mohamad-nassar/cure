@@ -24,11 +24,9 @@
 
             <section class="sample-text-area">
                 <div class="container p-4">
-                    <img src="{{ asset('images/image/icu.jpg') }}" class="w-100 mb-3">
-                    <img src="{{ asset('images/image/icumach.jpg') }}" class="w-100 mb-3">
-                    <img src="{{ asset('images/image/icu.jpg') }}" class="w-100 mb-3">
-                    <img src="{{ asset('images/image/icumach.jpg') }}" class="w-100 mb-3">
-                    <img src="{{ asset('images/image/icu.jpg') }}" class="w-100 mb-3">
+                    @foreach ($images as $image)
+                    <img src="{{ asset($image->image) }}" class="w-100 mb-3">
+                    @endforeach
                  </div>
             </section>
 

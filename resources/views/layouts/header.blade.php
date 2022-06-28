@@ -120,7 +120,39 @@
                         Services
                       </p>
                     </a>
-                  </li>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('cmsdoctorpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsdoctorpage')active @endif">
+                        <i class="fas fa-user-md" style="font-size: 17px"></i>
+                      <p>
+                        Doctors
+                      </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('cmsequipementpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsequipementpage')active @endif">
+                        <i class="fas fa-image"></i>
+                      <p>
+                        Hospital Equipment
+                      </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('cmsdepartmentpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsdepartmentpage')active @endif">
+                        <i class="fas fa-hospital-user"></i>
+                      <p>
+                        Our Departments
+                      </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('cmsappointmentpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsappointmentpage')active @endif">
+                        <i class="fas fa-calendar-check"></i>
+                      <p>
+                        Appointments
+                      </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                   <a href="{{ Route('cmscontactpage') }}" class="nav-link @if(Route::currentRouteName()=='cmscontactpage')active @endif">
                     <i class="fas fa-comment"></i>

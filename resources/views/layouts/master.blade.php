@@ -118,6 +118,19 @@ $("input[data-bootstrap-switch]").each(function(){
     $(function () {
     bsCustomFileInput.init();
   });
+  function formatText(icon){
+                return $("<span class="+$(icon.element).data('icon')+">"+icon.text+"</span>");
+              };
+              $.fn.select2.amd.require(['select2/compat/matcher'], function (oldMatcher) {
+                $('#icon').select2({
+                templateSelection: formatText,
+                templateResult: formatText
+                  });
+                  $('.icn').select2({
+                templateSelection: formatText,
+                templateResult: formatText
+                  });
+              });
 </script>
 <script>
   if ($(window).width() > 720) {
