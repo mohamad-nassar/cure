@@ -1,9 +1,8 @@
-
-
-
-
-
-		<!-- PAGE CONTENT
+@php
+$contact=json_decode(file_get_contents(public_path() . "/pages/contactus.json"));
+$opening=json_decode(file_get_contents(public_path() . "/pages/opening.json"));
+@endphp
+        <!-- PAGE CONTENT
 		============================================= -->
 		<div id="page" class="page">
 
@@ -29,15 +28,14 @@
 
 			    		<!-- Address -->
 			     		<div class="headertopleft">
-			        		<div class="address clearfix"><span><i class="fa fa-map-marker-alt"></i>Hamouda Mahmoud Street ,25
-								in front of Enppi , region 8</span> <a href="tel:0222872012" class="callusbtn"><i class="fa fa-phone"></i>02 22872012 – 02 22872013</a>
+			        		<div class="address clearfix"><span><i class="fa fa-map-marker-alt"></i>{!! strip_tags($contact->location) !!}</span> <a href="tel:{{ $contact->phone }}" class="callusbtn"><i class="fa fa-phone"></i>{{ $contact->phone }}</a>
 			            	</div>
 			     		</div>
 
 			     		<!-- Social Links -->
 					    <div class="headertopright headertopright2">
 <div class="wrapper d-none d-md-block">
- <a class="btn-company" href="about-company.html"><button href="about-company.html" class="button2">
+ <a class="btn-company"><button class="button2">
 About Our Company
     <span></span>
     <span></span>
@@ -47,9 +45,9 @@ About Our Company
   </a>
 </div>
 <div>
-					        <a class="facebookicon" title="Linkedin" href="#"><i class="fa fa-instagram"></i> <span class="mobiletext02">Linkedin</span></a>
+					        {{-- <a class="facebookicon" title="Linkedin" href="#"><i class="fa fa-instagram"></i> <span class="mobiletext02">Linkedin</span></a>
 					        <a class="facebookicon" title="Facebook" href="#"><i class="fa fa-facebook-f"></i> <span class="mobiletext02">Facebook</span></a>
-							<a class="facebookicon" title="Facebook" href="#"><i class="fa fa-whatsapp"></i> <span class="mobiletext02">Facebook</span></a>
+							<a class="facebookicon" title="Facebook" href="#"><i class="fa fa-whatsapp"></i> <span class="mobiletext02">Facebook</span></a> --}}
 				      	</div>
 </div>
 				    </div>
