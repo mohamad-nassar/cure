@@ -61,10 +61,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('home',[Home::class,'page'])->name('cmshomepage');
     Route::post('home/add/slider',[Home::class,'addslider'])->name('addslider');
+    Route::post('home/add/service',[Home::class,'addnewservice'])->name('addnewhomeservice');
     Route::post('home/update/slider/{id}',[Home::class,'updateslider'])->name('updateslider');
+    Route::post('home/update/service/{id}',[Home::class,'updateservice'])->name('updatehomeservice');
     Route::post('home/update/who',[Home::class,'updatewho'])->name('updatewho');
+    Route::post('home/update/outpatient',[Home::class,'updateoutpatient'])->name('updateoutpatient');
     Route::get('home/delete/slider/{id}',[Home::class,'deleteslider'])->name('deleteslider');
+    Route::get('home/delete/service/{id}',[Home::class,'deleteservice'])->name('deletehomeservice');
     Route::get('home/status/slider/{id}/{status}',[Home::class,'statusslider'])->name('statusslider');
+    Route::get('home/status/service/{id}/{status}',[Home::class,'statusservice'])->name('statushomeservice');
 
     Route::get('/about-us',[AboutUs::class,'page'])->name('cmsaboutpage');
     Route::post('/about-us/update',[AboutUs::class,'aboutupdate'])->name('aboutupdate');

@@ -99,83 +99,23 @@
 				<div class="container">
 			 		<div class="row">
 
+                        @foreach ($services as $service)
+                        <!-- SERVICE BOX #1 -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="sbox-1 icon-md wow fadeInUp" data-wow-delay="0.4s">
 
-			 			<!-- SERVICE BOX #1 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-1 icon-md wow fadeInUp" data-wow-delay="0.4s">
+                                <!-- Icon -->
+                                <span class="{{ $service->icon }} blue-color"></span>
 
-								<!-- Icon -->
-								<span class="flaticon-137-doctor blue-color"></span>
+                                <!-- Title -->
+                                <h5 class="h5-sm steelblue-color">{{ $service->title }}</h5>
 
-								<!-- Title -->
-								<h5 class="h5-sm steelblue-color">Qualified Doctors</h5>
+                                <!-- Text -->
+                                {!! html_entity_decode($service->text) !!}
 
-								<!-- Text -->
-								<p>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor
-								   tempus feugiat dolor lacinia
-								</p>
-
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #2 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-1 icon-md wow fadeInUp" data-wow-delay="0.6s">
-
-								<!-- Icon -->
-								<span class="flaticon-076-microscope blue-color"></span>
-
-								<!-- Title -->
-								<h5 class="h5-sm steelblue-color">Modern Equipment</h5>
-
-								<!-- Text -->
-								<p>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor
-								   tempus feugiat dolor lacinia
-								</p>
-
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #3 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-1 icon-md wow fadeInUp" data-wow-delay="0.8s">
-
-								<!-- Icon -->
-								<span class="flaticon-008-ambulance-6 blue-color"></span>
-
-								<!-- Title -->
-								<h5 class="h5-sm steelblue-color">Emergency Help</h5>
-
-								<!-- Text -->
-								<p>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor
-								   tempus feugiat dolor lacinia
-								</p>
-
-							</div>
-						</div>
-
-
-						<!-- SERVICE BOX #4 -->
-						<div class="col-sm-6 col-lg-3">
-							<div class="sbox-1 icon-md wow fadeInUp" data-wow-delay="1s">
-
-								<!-- Icon -->
-								<span class="flaticon-083-stethoscope blue-color"></span>
-
-								<!-- Title -->
-								<h5 class="h5-sm steelblue-color">Individual Approach</h5>
-
-								<!-- Text -->
-								<p>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor
-								   tempus feugiat dolor lacinia
-								</p>
-
-							</div>
-						</div>
-
-
+                            </div>
+                        </div>
+                        @endforeach
 			 		</div>	   <!-- End row -->
 			 	</div>	   <!-- End container -->
 			</section>	<!-- END SERVICES-1 -->
@@ -433,7 +373,7 @@
                                     @foreach ($departments as $department)
                                     <li class="nav-item icon-xs">
 								    	<a class="nav-link @if($loop->first) active @endif" id="tab{{ $department->id }}-list" data-toggle="pill" href="#tab-{{ $department->id }}" role="tab" aria-controls="tab-1" aria-selected="true">
-								    		<span class="flaticon-083-stethoscope"></span> {{ $department->title }}
+								    		<span class="{{ $department->icon }}"></span> {{ $department->title }}
 								    	</a>
 								  	</li>
                                     @endforeach
@@ -569,7 +509,7 @@
                                                                     <div class="ttm-icon ttm-icon_element-size-md style2 ttm-icon_element-color-skincolor ttm-bgcolor-grey">
 																		<i class="fa fa-medkit" aria-hidden="true"></i>
                                                                     </div>
-                                                                    <span class="number"></span>
+                                                                    <span class="number">01</span>
                                                                 </div>
                                                             </div>
                                                             <div class="featured-content">
@@ -592,7 +532,7 @@
                                                                     <div class="ttm-icon ttm-icon_element-size-md style2 ttm-icon_element-color-skincolor ttm-bgcolor-grey">
 																		<i class="fa fa-file" aria-hidden="true"></i>
                                                                     </div>
-                                                                    <span class="number"></span>
+                                                                    <span class="number">02</span>
                                                                 </div>
                                                             </div>
                                                             <div class="featured-content">
@@ -615,7 +555,7 @@
                                                                     <div class="ttm-icon ttm-icon_element-size-md style2 ttm-icon_element-color-skincolor ttm-bgcolor-grey">
 																		<i class="fa fa-calendar" aria-hidden="true"></i>
                                                                     </div>
-                                                                    <span class="number"></span>
+                                                                    <span class="number">03</span>
                                                                 </div>
                                                             </div>
                                                             <div class="featured-content">
@@ -638,9 +578,12 @@
                                                                     <div class="ttm-icon ttm-icon_element-size-md style2 ttm-icon_element-color-skincolor ttm-bgcolor-grey">
 																		<i class="fa fa-user-md" aria-hidden="true"></i>
                                                                     </div>
-                                                                    <span class="number">
-
-																	</span>
+                                                                    <style>
+                                                                        .number::after{
+                                                                            content:'' !important;
+                                                                        }
+                                                                    </style>
+                                                                    <span class="number">04</span>
                                                                 </div>
                                                             </div>
                                                             <div class="featured-content">

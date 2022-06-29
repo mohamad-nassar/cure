@@ -8,6 +8,7 @@ use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Doctor;
 use App\Models\Equipement;
+use App\Models\Home_service;
 use App\Models\Home_slider;
 use App\Models\Service;
 use App\Models\Who;
@@ -22,7 +23,8 @@ class website extends Controller
         $opening=json_decode(file_get_contents(public_path() ."/pages/opening.json"));
         $departments=Department::where('status',1)->get();
         $who=Who::first();
-        return view('website.index',compact('slider','opening','departments','who'));
+        $services=Home_service::where('status',1)->get();
+        return view('website.index',compact('slider','opening','departments','who','services'));
     }
     public function about()
     {

@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Home_service extends Model
+class outpatient_clinics extends Model
 {
     use HasFactory;
-    protected $table='home_service';
-    protected $fillable=['title','text','icon','status'];
+    protected $table='outpatient';
+    protected $fillable=['patient','doctor','room'];
 }
