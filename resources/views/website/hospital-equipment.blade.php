@@ -1,4 +1,7 @@
 @extends('website.layouts.master')
+@section('title')
+Hospital Equipment
+@endsection
 @section('content')
 
 			<!-- BREADCRUMB

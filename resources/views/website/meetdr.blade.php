@@ -1,4 +1,7 @@
 @extends('website.layouts.master')
+@section('title')
+Meet The Doctor
+@endsection
 @section('content')
     <style>
         .wsmenu {

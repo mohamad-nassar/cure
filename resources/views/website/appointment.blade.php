@@ -1,4 +1,7 @@
 @extends('website.layouts.master')
+@section('title')
+Appointment
+@endsection
 @section('content')
 
 @php

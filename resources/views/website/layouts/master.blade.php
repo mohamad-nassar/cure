@@ -5,17 +5,17 @@
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="author" content="Jthemes">
-		<meta name="description" content="MedService - Medical & Medical Health Landing Page Template">
-		<meta name="keywords" content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
+		<meta name="author" content="Verozone">
+		<meta name="description" content="Cure Hospital Website">
+		<meta name="keywords" content="Cure, Hospital, Hospital Cairo, Hospital Egypt, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   		<!-- SITE TITLE -->
-		<title>Home</title>
+		<title>Cure Hospital | @yield('title')</title>
 
 		<!-- FAVICON AND TOUCH ICONS  -->
-		<link rel="shortcut icon" href="images/favicon-1.ico" type="image/x-icon">
-		<link rel="icon" href="images/favicon-1.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152-1.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120-1.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76-1.png">

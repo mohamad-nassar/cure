@@ -1,4 +1,7 @@
 @extends('website.layouts.master')
+@section('title')
+Home
+@endsection
 @section('content')
 
 			<!-- HERO-11

@@ -1,4 +1,7 @@
 @extends('website.layouts.master')
+@section('title')
+For Doctor
+@endsection
 @section('content')
 
 

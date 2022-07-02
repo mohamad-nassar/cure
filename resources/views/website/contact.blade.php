@@ -1,4 +1,7 @@
 @extends('website.layouts.master')
+@section('title')
+Contact Us
+@endsection
 @section('content')
 @php
 $contact=json_decode(file_get_contents(public_path() . "/pages/contactus.json"));

@@ -1,4 +1,7 @@
 @extends('website.layouts.master')
+@section('title')
+Services
+@endsection
 @section('content')
     <!-- BREADCRUMB
            ============================================= -->
