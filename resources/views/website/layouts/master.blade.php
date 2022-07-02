@@ -15,7 +15,7 @@
 
 		<!-- FAVICON AND TOUCH ICONS  -->
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="{{ asset('frontend/images/image/logoeng.png') }}" type="image/x-icon">
 		<link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152-1.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120-1.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76-1.png">
