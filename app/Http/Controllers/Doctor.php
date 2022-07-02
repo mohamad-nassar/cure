@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Doctor as ModelsDoctor;
 use Illuminate\Http\Request;
 
@@ -58,6 +59,7 @@ class Doctor extends Controller
     {
         $doctor=ModelsDoctor::find($id);
         if($doctor->image) unlink($doctor->image);
+        Appointment::where('docotr',$id)->delete();
         $doctor->delete();
         return back()->with('err','Doctor status has been deleted.');
     }
