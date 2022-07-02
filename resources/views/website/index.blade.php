@@ -288,7 +288,7 @@
 								<!-- Text -->
 								<p>The outpatient clinics covering almost all medical specialties and subspecialties,
 									all the outpatient’s doctors hold highest scientific certificates.	</p>
-
+                                    @inject('outpa', 'App\Models\outpatient_clinics')
 								<!-- Statistic Holder -->
 								<div class="statistic-holder">
 									<div class="row">
@@ -301,7 +301,7 @@
 												<span class="flaticon-062-cardiogram-3 blue-color"></span>
 
 												<!-- Text -->
-												<h5 class="statistic-number steelblue-color">9,<span class="count-element">832</span></h5>
+												<h5 class="statistic-number steelblue-color"><span class="count-element">{{ $outpa->first()->patient }}</span></h5>
 												<p>Happy Patients</p>
 
 											</div>
@@ -315,7 +315,7 @@
 												<span class="flaticon-137-doctor blue-color"></span>
 
 												<!-- Text -->
-												<h5 class="statistic-number steelblue-color"><span class="count-element">108</span></h5>
+												<h5 class="statistic-number steelblue-color"><span class="count-element">{{ $outpa->first()->doctor }}</span></h5>
 												<p>Qualified Doctors</p>
 
 											</div>
@@ -329,7 +329,7 @@
 												<span class="flaticon-065-hospital-bed blue-color"></span>
 
 												<!-- Text -->
-												<h5 class="statistic-number steelblue-color"><span class="count-element">364</span></h5>
+												<h5 class="statistic-number steelblue-color"><span class="count-element">{{ $outpa->first()->room }}</span></h5>
 												<p>Clinic Rooms</p>
 
 											</div>

@@ -37,7 +37,7 @@ class Service extends Controller
         $service->caption=$request->input('caption');
         if($request->hasFile('image'))
         {
-            unlink($service->image);
+         if($service->image) unlink($service->image);
          $image = $request->file('image');
          $fileName = time().rand(1000,50000) . '.' . $image->getClientOriginalExtension();
          $image->move('upload/', $fileName);
@@ -52,7 +52,7 @@ class Service extends Controller
     public function deleteservice($id)
     {
         $service=ModelsService::find($id);
-        unlink($service->image);
+        if($service->image) unlink($service->image);
         $service->delete();
         return back()->with('err','Service deleted successfully');
     }

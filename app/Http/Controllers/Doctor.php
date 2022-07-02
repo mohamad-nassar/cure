@@ -36,7 +36,7 @@ class Doctor extends Controller
         $doctor->caption=$request->input('caption');
         if($request->hasFile('image'))
         {
-            unlink($doctor->image);
+            if($doctor->image) unlink($doctor->image);
             $image = $request->file('image');
             $fileName = time().rand(1000,50000) . '.' . $image->getClientOriginalExtension();
             $image->move('upload/', $fileName);
@@ -57,7 +57,7 @@ class Doctor extends Controller
     public function deletedoctor($id)
     {
         $doctor=ModelsDoctor::find($id);
-        unlink($doctor->image);
+        if($doctor->image) unlink($doctor->image);
         $doctor->delete();
         return back()->with('err','Doctor status has been deleted.');
     }
