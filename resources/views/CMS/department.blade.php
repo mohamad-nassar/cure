@@ -73,6 +73,23 @@
                     @endforeach
                 </select>
                 <br>
+                <label>Image</label>
+                <br>
+                <img alt="" id="img" width="50%">
+
+                <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" onchange="desc(event);" name="image">
+                <script>
+                    var desc = function(event) {
+                            var output = document.getElementById('img');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                            output.onload = function() {
+                                URL.revokeObjectURL(output.src) // free memory
+                            }
+                        };
+                </script>
+                <label class="custom-file-label" for="customFile">Choose file...</label>
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -173,7 +190,24 @@
                     <option value="{{ $icon->icon }}" data-icon="{{ $icon->icon }}" @if($icon->icon==$value->icon) selected @endif>Icon</option>
                     @endforeach
                 </select>
+                <br>
+                <label>Image</label>
+                <br>
+                <img alt="" @if ($value->image) src="{{ asset($value->image) }}" @endif id="img{{ $value->id }}" width="50%">
 
+                <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" onchange="desc{{ $value->id }}(event);" name="image">
+                <script>
+                    var desc{{ $value->id }} = function(event) {
+                            var output = document.getElementById('img{{ $value->id }}');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                            output.onload = function() {
+                                URL.revokeObjectURL(output.src) // free memory
+                            }
+                        };
+                </script>
+                <label class="custom-file-label" for="customFile">Choose file...</label>
+                </div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
