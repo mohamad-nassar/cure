@@ -20,6 +20,15 @@ class Department extends Controller
         $department->title=$request->input('title');
         $department->icon=$request->input('icon');
         $department->text=$request->input('caption');
+        if($request->hasFile('image'))
+        {
+         $image = $request->file('image');
+         $fileName = time().rand(1000,50000) . '.' . $image->getClientOriginalExtension();
+         $image->move('upload/', $fileName);
+         $uploadFile = 'upload/' . $fileName;
+         $image=$uploadFile;
+         $department->image=$image;
+        }
         $department->save();
         return back()->with('err','New Department Has Been Added.');
     }
@@ -29,6 +38,17 @@ class Department extends Controller
         $department->title=$request->input('title');
         $department->icon=$request->input('icon');
         $department->text=$request->input('caption');
+        if($request->hasFile('image'))
+        {
+         if($department->image) unlink($department->image);
+         $image = $request->file('image');
+         $fileName = time().rand(1000,50000) . '.' . $image->getClientOriginalExtension();
+         $image->move('upload/', $fileName);
+         $uploadFile = 'upload/' . $fileName;
+         $image=$uploadFile;
+         $department->image=$image;
+        }
+        $department->save();
         $department->update();
         return back()->with('err','Department Has Been Updated.');
     }

@@ -9,7 +9,7 @@ class Department extends Model
 {
     use HasFactory;
     protected $table='department';
-    protected $fillable=['icon','title','text'];
+    protected $fillable=['icon','title','text','image'];
 
     public function department()
     {
