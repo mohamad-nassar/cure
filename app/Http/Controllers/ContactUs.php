@@ -24,16 +24,14 @@ class ContactUs extends Controller
          $uploadFile = 'upload/' . $fileName;
          $image=$uploadFile;
         }
-        // $opening=[];
-        // for($i=1;$i<=$request->input('count');$i++)
-        // {
-        //     $opening += [$request->input('day'.$i) =>$request->input('$hour'.$i)];
-        // }
         $data=array(
             'image'=>$image,
             'location'=>$request->input('location'),
             'email'=>$request->input('email'),
             'phone'=>$request->input('phone'),
+            'facebook'=>$request->input('facebook'),
+            'instagram'=>$request->input('instagram'),
+            'whatsapp'=>$request->input('whatsapp'),
         );
         $contactus=$data;
         $contactus=json_encode($contactus);

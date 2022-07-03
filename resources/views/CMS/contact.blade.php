@@ -78,6 +78,15 @@
                         <label>Phone</label>
                         <input type="text" name="phone" id="phone" class="form-control" value="{{ $contactus->phone }}">
                         <br>
+                        <label>Facebook:</label>
+                        <input type="text" name="facebook" id="facebook" class="form-control" value="{{ $contactus->facebook }}">
+                        <br>
+                        <label>Instagram:</label>
+                        <input type="text" name="instagram" id="instagram" class="form-control" value="{{ $contactus->instagram }}">
+                        <br>
+                        <label>Whatsapp:</label>
+                        <input type="text" name="whatsapp" id="whatsapp" class="form-control" value="{{ $contactus->whatsapp }}">
+                        <br>
                         <div align="center"><button type="button" class="btn btn-primary" id="updbtn">Update</button></div>
                         <script>
                           $(document).ready(function(){
@@ -85,6 +94,9 @@
                               e.preventDefault();
                               var email=$('#email').val();
                               var phone=$('#phone').val();
+                              var whatsapp=$('#whatsapp').val();
+                              var facebook=$('#facebook').val();
+                              var instagram=$('#instagram').val();
                               var location=$('#location').val();
                               var image=$('#customFile')[0].files[0];
                               var formData=new FormData();
