@@ -398,7 +398,7 @@ Home
         <!-- TAB-1 IMAGE -->
         <div class="col-lg-6">
             <div class="tab-img">
-                <img class="img-fluid" src="{{ ('frontend/images/image/pedia.jpg') }}" alt="tab-image">
+                <img class="img-fluid" src="{{ asset($department->image) }}" alt="tab-image">
             </div>
         </div>
 
