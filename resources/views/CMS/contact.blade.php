@@ -102,6 +102,9 @@
                               var formData=new FormData();
                               formData.append('email',email);
                               formData.append('phone',phone);
+                              formData.append('facebook',facebook);
+                              formData.append('instagram',instagram);
+                              formData.append('whatsapp',whatsapp);
                               formData.append('location',location);
                               formData.append('image',image);
                                 $.ajaxSetup({
