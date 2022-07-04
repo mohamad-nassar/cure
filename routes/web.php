@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Superadmin;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\Appointment;
+use App\Http\Controllers\Consultant;
 use App\Http\Controllers\ContactUs;
 use App\Http\Controllers\Department;
 use App\Http\Controllers\Doctor;
@@ -39,8 +40,8 @@ Route::get('/hospitalequipment',[website::class,'hospitalequipment'])->name('hos
 Route::get('/meetdr',[website::class,'meetdr'])->name('meetdr');
 Route::get('/services',[website::class,'services'])->name('services');
 Route::get('/timetable',[website::class,'timetable'])->name('timetable');
-Route::get('/telemedicine',[website::class,'telemedicine'])->name('telemedicine');
-Route::get('/medical',[website::class,'medical'])->name('medical');
+Route::get('/telemedicine',function(){return view('website.soon');})->name('telemed');
+Route::get('/medical',function(){return view('website.soon');})->name('medical');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
@@ -88,6 +89,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/doctors/update/{id}',[Doctor::class,'updatedoctor'])->name('updatedoctor');
     Route::get('/doctors/delete/{id}',[Doctor::class,'deletedoctor'])->name('deletedoctor');
     Route::get('/doctors/status/{id}/{status}',[Doctor::class,'statusdoctor'])->name('statusdoctor');
+
+    Route::get('/consultant', [Consultant::class,'page'])->name('cmsconsultantpage');
+    Route::post('/consultant/update', [Consultant::class,'update'])->name('cmsconsultantupdate');
 
     Route::get('/equipement',[Equipement::class,'page'])->name('cmsequipementpage');
     Route::post('/equipement/add',[Equipement::class,'equipementuploadimage'])->name('equipementuploadimage');

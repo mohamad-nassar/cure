@@ -125,8 +125,8 @@ About Our Company
 
 
 							    <!-- SIMPLE NAVIGATION LINK -->
-								<li class="nl-simple" aria-haspopup="true"><a href="#">Telemedicine</a></li>
-								<li class="nl-simple" aria-haspopup="true"><a href="#">Medical Tourism</a></li>
+								<li class="nl-simple" aria-haspopup="true"><a href="{{ Route('telemed') }}">Telemedicine</a></li>
+								<li class="nl-simple" aria-haspopup="true"><a href="{{ Route('medical') }}">Medical Tourism</a></li>
 							    <li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='department') active @endif" href="/department">Our Departments</a></li>
 								<li class="nl-simple" aria-haspopup="true"><a class="@if(Route::currentRouteName()=='contact') active @endif" href="/contact">Contact Us</a></li>
 							    <!-- NAVIGATION MENU BUTTON -->

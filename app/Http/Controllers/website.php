@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\appoint;
 use App\Mail\contact;
 use App\Models\Appointment;
+use App\Models\Consultant;
 use App\Models\Department;
 use App\Models\Doctor;
 use App\Models\Equipement;
@@ -92,7 +93,8 @@ class website extends Controller
     }
     public function fordoctor()
     {
-        return view('website.for-doctor');
+        $consult=Consultant::first();
+        return view('website.for-doctor',compact('consult'));
     }
     public function hospitalequipment()
     {

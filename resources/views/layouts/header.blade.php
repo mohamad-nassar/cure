@@ -113,29 +113,59 @@
                     </p>
                   </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ Route('cmsservicepage') }}" class="nav-link @if(Route::currentRouteName()=='cmsservicepage')active @endif">
-                        <i class="fas fa-briefcase-medical"></i>
+                <li class="nav-item @if(Route::currentRouteName()=='cmsservicepage' || Route::currentRouteName()=='cmsdoctorpage') menu-is-opening menu-open @endif">
+                    <a href="#" class="nav-link @if(Route::currentRouteName()=='cmsservicepage' || Route::currentRouteName()=='cmsdoctorpage') active @endif">
+                        <i class="fas fa-user-injured"></i>
                       <p>
-                        Services
+                        For Patients
+                        <i class="fas fa-angle-left right"></i>
                       </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ Route('cmsservicepage') }}" class="nav-link @if(Route::currentRouteName()=='cmsservicepage')active @endif">
+                                <i class="fas fa-briefcase-medical"></i>
+                              <p>
+                                Services
+                              </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ Route('cmsdoctorpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsdoctorpage')active @endif">
+                                <i class="fas fa-user-md" style="font-size: 17px"></i>
+                              <p>
+                                Doctors
+                              </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ Route('cmsdoctorpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsdoctorpage')active @endif">
-                        <i class="fas fa-user-md" style="font-size: 17px"></i>
+                <li class="nav-item @if(Route::currentRouteName()=='cmsconsultantpage' || Route::currentRouteName()=='cmsequipementpage') menu-is-opening menu-open @endif">
+                    <a href="#" class="nav-link @if(Route::currentRouteName()=='cmsconsultantpage' || Route::currentRouteName()=='cmsequipementpage') active @endif">
+                        <i class="fas fa-stethoscope"></i>
                       <p>
-                        Doctors
+                        For Doctors
+                        <i class="fas fa-angle-left right"></i>
                       </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ Route('cmsequipementpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsequipementpage')active @endif">
-                        <i class="fas fa-image"></i>
-                      <p>
-                        Hospital Equipment
-                      </p>
-                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ Route('cmsconsultantpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsconsultantpage')active @endif">
+                                <i class="fas fa-comment-medical"></i>
+                              <p>
+                                Consultant
+                              </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ Route('cmsequipementpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsequipementpage')active @endif">
+                                <i class="fas fa-image"></i>
+                              <p>
+                                Hospital Equipment
+                              </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{ Route('cmsdepartmentpage') }}" class="nav-link @if(Route::currentRouteName()=='cmsdepartmentpage')active @endif">
